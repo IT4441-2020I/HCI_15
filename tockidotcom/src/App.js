@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter as Router, Switch, Route ,Link} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Practice from "./Components/Practice";
 import Learning from "./Components/Learning";
 import Battle from "./Components/Battle";
@@ -24,6 +24,7 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
+import Competion from "./Components/Competion";
 
 const drawerWidth = 240;
 
@@ -152,45 +153,57 @@ export default function App() {
         </div>
         <Divider />
         <List>
-          <Link to="/learning" style={{textDecoration:"none",color:"black"}}>
-          <ListItem button>
-            <ListItemIcon>
-              <InboxIcon /> 
-            </ListItemIcon>
-            <ListItemText primary="Học gõ" />
-          </ListItem>
+          <Link
+            to="/learning"
+            style={{ textDecoration: "none", color: "black" }}
+          >
+            <ListItem button>
+              <ListItemIcon>
+                <InboxIcon />
+              </ListItemIcon>
+              <ListItemText primary="Học gõ" />
+            </ListItem>
           </Link>
-          <Link to="/practice" style={{textDecoration:"none",color:"black"}}>
-          <ListItem button>
-            <ListItemIcon>
-              <InboxIcon /> 
-            </ListItemIcon>
-            <ListItemText primary="Luyện tập" />
-          </ListItem>
+          <Link
+            to="/practice"
+            style={{ textDecoration: "none", color: "black" }}
+          >
+            <ListItem button>
+              <ListItemIcon>
+                <InboxIcon />
+              </ListItemIcon>
+              <ListItemText primary="Luyện tập" />
+            </ListItem>
           </Link>
-          <Link to="/battle" style={{textDecoration:"none",color:"black"}}>
-          <ListItem button >
-            <ListItemIcon>
-              <InboxIcon /> 
-            </ListItemIcon>
-            <ListItemText primary="Thi đấu" />
-          </ListItem>
+          <Link to="/battle" style={{ textDecoration: "none", color: "black" }}>
+            <ListItem button>
+              <ListItemIcon>
+                <InboxIcon />
+              </ListItemIcon>
+              <ListItemText primary="Thi đấu" />
+            </ListItem>
           </Link>
-          <Link to="/evaluate" style={{textDecoration:"none",color:"black"}}>
-          <ListItem button>
-            <ListItemIcon>
-              <InboxIcon /> 
-            </ListItemIcon>
-            <ListItemText primary="Đánh giá" />
-          </ListItem>
+          <Link
+            to="/evaluate"
+            style={{ textDecoration: "none", color: "black" }}
+          >
+            <ListItem button>
+              <ListItemIcon>
+                <InboxIcon />
+              </ListItemIcon>
+              <ListItemText primary="Đánh giá" />
+            </ListItem>
           </Link>
-          <Link to="/history" style={{textDecoration:"none",color:"black"}}>
-          <ListItem button >
-            <ListItemIcon>
-              <InboxIcon /> 
-            </ListItemIcon>
-            <ListItemText primary="Lịch sử" />
-          </ListItem>
+          <Link
+            to="/history"
+            style={{ textDecoration: "none", color: "black" }}
+          >
+            <ListItem button>
+              <ListItemIcon>
+                <InboxIcon />
+              </ListItemIcon>
+              <ListItemText primary="Lịch sử" />
+            </ListItem>
           </Link>
         </List>
         <Divider />
@@ -209,7 +222,7 @@ export default function App() {
         <div className={classes.toolbar} />
         <Switch>
           <Route path="/battle">
-            <Battle />
+            <Competion />
           </Route>
           <Route path="/practice">
             <Practice />
