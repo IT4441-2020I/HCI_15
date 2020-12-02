@@ -1,14 +1,12 @@
-import React, { Component } from 'react';
+import React, { useState} from 'react';
 
 import Card from '@material-ui/core/Card';
 
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
-import { TextareaAutosize } from '@material-ui/core';
 import { makeStyles, Theme, createStyles} from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import TextField from '@material-ui/core/TextField';
@@ -17,7 +15,6 @@ import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
-import FormLabel from '@material-ui/core/FormLabel';
 import Slider from '@material-ui/core/Slider';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -71,6 +68,17 @@ const useStyles = makeStyles((theme) => ({
   cardStyle: {
     marginBottom: 20,
 
+  },
+  button: {
+    marginRight: theme.spacing(1),
+  },
+  instructions: {
+    marginTop: theme.spacing(1),
+    marginBottom: theme.spacing(1),
+  },
+  evaluateStyle:{
+    width:' 100%',
+    height: '100%'
   }
 }));
 
@@ -88,17 +96,22 @@ const rows = [
 const Evaluate = () => {
   const classes = useStyles();
   // getModalStyle is not a pure function, we roll the style only on the first render
-  const [modalStyle] = React.useState(getModalStyle);
-  const [open, setOpen] = React.useState(false);
+  const [modalStyle] = useState(getModalStyle);
+  const [open, setOpen] = useState(false);
+  const [evalue, setEvalue] = useState(false);
+  const [value, setValue] = useState('female');
+ 
 
   const handleOpen = () => {
     setOpen(true);
   };
-
-  const handleClose = () => {
-    setOpen(false);
+  const handleOpenEvalue = () => {
+    setEvalue(true);
   };
-  const [value, setValue] = React.useState('female');
+
+  const handleClose=()=> {
+    setOpen(false);
+  }
 
   const handleChange = (event) => {
     setValue(event.target.value);
@@ -142,15 +155,21 @@ const Evaluate = () => {
       <Button size="small" color="danger" onClick={handleClose}>
         Back
       </Button>
-      <Button size="small" variant="outlined" color="secondary" onClick={handleClose}>
-        Get start !
+      <Button size="small" variant="outlined" color="secondary" onClick={handleOpenEvalue}>
+        GO
       </Button>
     </div>
+  );
+  const evaluateModal =(
+    <div style={modalStyle}>
+      <p>kkkkk</p>
+    </div>
+
   );
     return (
       <div class="row">
         <div class= "col-sm-7">
-          <div style={{marginLeft: 20, marginRight: 20}}>
+          <div style={{marginLeft: 30, marginRight: 30}}>
             <Card className={classes.cardStyle} >
               <CardContent>
                 <CardMedia
@@ -165,12 +184,13 @@ const Evaluate = () => {
                 <Button size="small" variant="outlined" color="primary" onClick={handleOpen}>
                   Open
                 </Button>
+                
               </CardContent>
              
             </Card>
             
-            <Card >
-              <CardContent>
+            <Card className={classes.cardStyle}>
+            <CardContent>
                 <CardMedia
                   image="/static/images/cards/contemplative-reptile.jpg"
                   title="Contemplative Reptile"
@@ -183,14 +203,12 @@ const Evaluate = () => {
                 <Button size="small" variant="outlined" color="primary" onClick={handleOpen}>
                   Open
                 </Button>
-              </CardContent>
+                </CardContent>
              
             </Card>
           </div>
+
         
-        
-                    
-      
         </div>
         <Modal
             open={open}
@@ -200,7 +218,11 @@ const Evaluate = () => {
           >
           {bodyModal}
           </Modal>
-       
+        <Modal>
+          {evaluateModal}
+        </Modal>
+
+
         <div class="col-sm-5" >
           <h3>Bảng xếp hạng</h3>
         <TableContainer component={Paper} style={{backgroundColor: "#ccc"}}>
