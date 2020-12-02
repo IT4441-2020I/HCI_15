@@ -221,8 +221,11 @@ export default function App() {
       <main className={classes.content}>
         <div className={classes.toolbar} />
         <Switch>
-          <Route path="/battle">
+        <Route path="/competition">
             <Competion />
+          </Route>
+          <Route path="/battle">
+            <Battle />
           </Route>
           <Route path="/practice">
             <Practice />

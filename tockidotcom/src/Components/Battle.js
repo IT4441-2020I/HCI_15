@@ -9,7 +9,7 @@ import Box from "@material-ui/core/Box";
 import PersonIcon from "@material-ui/icons/Person";
 import AddIcon from "@material-ui/icons/Add";
 import ArrowRightIcon from "@material-ui/icons/ArrowRight";
-
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import {
   Button,
   Checkbox,
@@ -81,6 +81,7 @@ function CustomizedTables() {
             <StyledTableRow key={row.id}>
               <StyledTableCell component="th" scope="row">
                 {row.id}
+                <Link to="competition">
                 <Button
                   variant="outlined"
                   color="white"
@@ -91,6 +92,7 @@ function CustomizedTables() {
                 >
                   Tham gia
                 </Button>
+                </Link>
               </StyledTableCell>
 
               <StyledTableCell align="right">
