@@ -19,11 +19,17 @@ import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
+import EmojiEventsIcon from "@material-ui/icons/EmojiEvents";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
-import MailIcon from "@material-ui/icons/Mail";
+import HomeIcon from "@material-ui/icons/Home";
+import LocalLibraryIcon from "@material-ui/icons/LocalLibrary";
+import AssignmentIcon from "@material-ui/icons/Assignment";
+import TrendingUpIcon from "@material-ui/icons/TrendingUp";
+import HistoryIcon from "@material-ui/icons/History";
+import PersonIcon from "@material-ui/icons/Person";
+import Setting from "@material-ui/icons/Settings";
 import Competion from "./Components/Competion";
 import HomePage from "./Components/HomePage";
 
@@ -157,7 +163,7 @@ export default function App() {
           <Link to="/home" style={{ textDecoration: "none", color: "black" }}>
             <ListItem button>
               <ListItemIcon>
-                <InboxIcon />
+                <HomeIcon />
               </ListItemIcon>
               <ListItemText primary="Trang chủ" />
             </ListItem>
@@ -168,7 +174,7 @@ export default function App() {
           >
             <ListItem button>
               <ListItemIcon>
-                <InboxIcon />
+                <LocalLibraryIcon />
               </ListItemIcon>
               <ListItemText primary="Học gõ" />
             </ListItem>
@@ -179,7 +185,7 @@ export default function App() {
           >
             <ListItem button>
               <ListItemIcon>
-                <InboxIcon />
+                <AssignmentIcon />
               </ListItemIcon>
               <ListItemText primary="Luyện tập" />
             </ListItem>
@@ -187,7 +193,7 @@ export default function App() {
           <Link to="/battle" style={{ textDecoration: "none", color: "black" }}>
             <ListItem button>
               <ListItemIcon>
-                <InboxIcon />
+                <EmojiEventsIcon />
               </ListItemIcon>
               <ListItemText primary="Thi đấu" />
             </ListItem>
@@ -198,7 +204,7 @@ export default function App() {
           >
             <ListItem button>
               <ListItemIcon>
-                <InboxIcon />
+                <TrendingUpIcon />
               </ListItemIcon>
               <ListItemText primary="Đánh giá" />
             </ListItem>
@@ -209,7 +215,7 @@ export default function App() {
           >
             <ListItem button>
               <ListItemIcon>
-                <InboxIcon />
+                <HistoryIcon />
               </ListItemIcon>
               <ListItemText primary="Lịch sử" />
             </ListItem>
@@ -217,10 +223,10 @@ export default function App() {
         </List>
         <Divider />
         <List>
-          {["All mail", "Trash", "Spam"].map((text, index) => (
+          {["Thông tin cá nhân", "Cài đặt"].map((text, index) => (
             <ListItem button key={text}>
               <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                {index % 2 === 0 ? <PersonIcon /> : <Setting />}
               </ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
