@@ -25,6 +25,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
 import Competion from "./Components/Competion";
+import HomePage from "./Components/HomePage";
 
 const drawerWidth = 240;
 
@@ -153,6 +154,14 @@ export default function App() {
         </div>
         <Divider />
         <List>
+          <Link to="/home" style={{ textDecoration: "none", color: "black" }}>
+            <ListItem button>
+              <ListItemIcon>
+                <InboxIcon />
+              </ListItemIcon>
+              <ListItemText primary="Trang chủ" />
+            </ListItem>
+          </Link>
           <Link
             to="/learning"
             style={{ textDecoration: "none", color: "black" }}
@@ -221,7 +230,10 @@ export default function App() {
       <main className={classes.content}>
         <div className={classes.toolbar} />
         <Switch>
-        <Route path="/competition">
+          <Route path="/home">
+            <HomePage />
+          </Route>
+          <Route path="/competition">
             <Competion />
           </Route>
           <Route path="/battle">
