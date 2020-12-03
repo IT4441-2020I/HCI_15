@@ -5,7 +5,7 @@ import Learning from "./Components/Learning";
 import Battle from "./Components/Battle";
 import History from "./Components/History";
 import Evaluate from "./Components/Evaluate";
-import React from "react";
+import React, {useState} from "react";
 import clsx from "clsx";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
@@ -32,6 +32,12 @@ import PersonIcon from "@material-ui/icons/Person";
 import Setting from "@material-ui/icons/Settings";
 import Competion from "./Components/Competion";
 import HomePage from "./Components/HomePage";
+
+import KeyboardIcon from '@material-ui/icons/Keyboard';
+import DoubleArrowIcon from '@material-ui/icons/DoubleArrow';
+import SportsKabaddiIcon from '@material-ui/icons/SportsKabaddi';
+import EqualizerIcon from '@material-ui/icons/Equalizer';
+import HistoryIcon from '@material-ui/icons/History';
 
 const drawerWidth = 240;
 
@@ -100,7 +106,7 @@ const useStyles = makeStyles((theme) => ({
 export default function App() {
   const classes = useStyles();
   const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -132,7 +138,7 @@ export default function App() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            Tốc ký trong tầm tay
+            Tốc ký trong tầm tay bạn
           </Typography>
         </Toolbar>
       </AppBar>
