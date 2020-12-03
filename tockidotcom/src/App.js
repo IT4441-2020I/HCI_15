@@ -5,7 +5,7 @@ import Learning from "./Components/Learning";
 import Battle from "./Components/Battle";
 import History from "./Components/History";
 import Evaluate from "./Components/Evaluate";
-import React from "react";
+import React, {useState} from "react";
 import clsx from "clsx";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
@@ -24,6 +24,12 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
+
+import KeyboardIcon from '@material-ui/icons/Keyboard';
+import DoubleArrowIcon from '@material-ui/icons/DoubleArrow';
+import SportsKabaddiIcon from '@material-ui/icons/SportsKabaddi';
+import EqualizerIcon from '@material-ui/icons/Equalizer';
+import HistoryIcon from '@material-ui/icons/History';
 
 const drawerWidth = 240;
 
@@ -92,7 +98,7 @@ const useStyles = makeStyles((theme) => ({
 export default function App() {
   const classes = useStyles();
   const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -124,7 +130,7 @@ export default function App() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            Tốc ký trong tầm tay
+            Tốc ký trong tầm tay bạn
           </Typography>
         </Toolbar>
       </AppBar>
@@ -155,7 +161,7 @@ export default function App() {
           <Link to="/learning" style={{textDecoration:"none",color:"black"}}>
           <ListItem button>
             <ListItemIcon>
-              <InboxIcon /> 
+              <KeyboardIcon /> 
             </ListItemIcon>
             <ListItemText primary="Học gõ" />
           </ListItem>
@@ -163,7 +169,7 @@ export default function App() {
           <Link to="/practice" style={{textDecoration:"none",color:"black"}}>
           <ListItem button>
             <ListItemIcon>
-              <InboxIcon /> 
+              <DoubleArrowIcon /> 
             </ListItemIcon>
             <ListItemText primary="Luyện tập" />
           </ListItem>
@@ -171,7 +177,7 @@ export default function App() {
           <Link to="/battle" style={{textDecoration:"none",color:"black"}}>
           <ListItem button >
             <ListItemIcon>
-              <InboxIcon /> 
+              <SportsKabaddiIcon /> 
             </ListItemIcon>
             <ListItemText primary="Thi đấu" />
           </ListItem>
@@ -179,7 +185,7 @@ export default function App() {
           <Link to="/evaluate" style={{textDecoration:"none",color:"black"}}>
           <ListItem button>
             <ListItemIcon>
-              <InboxIcon /> 
+              <EqualizerIcon /> 
             </ListItemIcon>
             <ListItemText primary="Đánh giá" />
           </ListItem>
@@ -187,7 +193,7 @@ export default function App() {
           <Link to="/history" style={{textDecoration:"none",color:"black"}}>
           <ListItem button >
             <ListItemIcon>
-              <InboxIcon /> 
+              <HistoryIcon /> 
             </ListItemIcon>
             <ListItemText primary="Lịch sử" />
           </ListItem>
