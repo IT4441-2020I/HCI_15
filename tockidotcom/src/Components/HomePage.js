@@ -3,7 +3,7 @@ import { Box, Button, Container, Grid } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 import bg from "../image/69.jpg";
-
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 export class HomePage extends Component {
   render() {
     return (
@@ -26,6 +26,7 @@ export class HomePage extends Component {
               <Grid container spacing={3} style={{ marginTop: "25px" }}>
                 <Grid item xs={2}></Grid>
                 <Grid item xs={3}>
+                  <Link to="/learning">
                   <Button
                     fullWidth
                     variant="contained"
@@ -34,6 +35,7 @@ export class HomePage extends Component {
                   >
                     Bắt đầu học
                   </Button>
+                  </Link>
                 </Grid>
                 <Grid item xs={1}></Grid>
                 <Grid item xs={3}>

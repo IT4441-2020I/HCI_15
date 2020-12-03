@@ -4,7 +4,6 @@ import { Row, Col, PageHeader, Button, Card, Input, Statistic } from 'antd';
 import 'antd/dist/antd.css';
 import { SyncOutlined } from '@ant-design/icons';
 import { Content } from 'antd/lib/layout/layout';
-import imagess from './Capture.PNG';
 
 import './Practice.css';
 
@@ -34,7 +33,7 @@ class Practice extends Component {
         console.log('render' + this.state.test);
 
         const listKeyBoard1 = ['S', 'K', 'R', 'N', 'H', '*', 'W', 'J', 'N', 'T'];
-        const listKeyBoard2 = ['T', 'P', 'H', 'N', 'S', 'I', 'Y', 'J', 'G', 'K']
+        const listKeyBoard2 = ['T', 'P', 'H', 'N', 'S', 'I', 'Y', 'J', 'G', 'K'];
 
         return (
             <div

@@ -37,7 +37,6 @@ import KeyboardIcon from '@material-ui/icons/Keyboard';
 import DoubleArrowIcon from '@material-ui/icons/DoubleArrow';
 import SportsKabaddiIcon from '@material-ui/icons/SportsKabaddi';
 import EqualizerIcon from '@material-ui/icons/Equalizer';
-import HistoryIcon from '@material-ui/icons/History';
 
 const drawerWidth = 240;
 
@@ -137,8 +136,8 @@ export default function App() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap>
-            Tốc ký trong tầm tay bạn
+          <Typography variant="h6" noWrap style={{color:"white"}}>
+            Tốc ký trong tầm tay
           </Typography>
         </Toolbar>
       </AppBar>
