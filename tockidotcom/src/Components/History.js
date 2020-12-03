@@ -70,9 +70,13 @@ function Row(props) {
               <Typography variant="h6" gutterBottom component="div">
                 Chi tiết lỗi
               </Typography>
-              <Table size="small" aria-label="purchases" style={{ backgroundColor: "rgb(221, 221, 221)"}}>
+              <Table
+                size="small"
+                aria-label="purchases"
+                style={{ backgroundColor: "rgb(221, 221, 221)" }}
+              >
                 <TableHead>
-                  <TableRow >
+                  <TableRow>
                     <TableCell>Từ gõ sai</TableCell>
                     <TableCell>Quy tắc gõ</TableCell>
                     <TableCell align="right">Số lần gõ sai</TableCell>
@@ -80,7 +84,7 @@ function Row(props) {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  <TableRow >
+                  <TableRow>
                     <TableCell component="th" scope="row">
                       ngu
                     </TableCell>
@@ -150,7 +154,7 @@ export default function CollapsibleTable() {
           </TableHead>
           <TableBody>
             {rows.map((row) => (
-              <Row key={row.name} row={row} style={{fontWeight:"bold"}}/>
+              <Row key={row.name} row={row} style={{ fontWeight: "bold" }} />
             ))}
           </TableBody>
         </Table>
