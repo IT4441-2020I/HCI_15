@@ -33,11 +33,6 @@ import Setting from "@material-ui/icons/Settings";
 import Competion from "./Components/Competion";
 import HomePage from "./Components/HomePage";
 
-import KeyboardIcon from '@material-ui/icons/Keyboard';
-import DoubleArrowIcon from '@material-ui/icons/DoubleArrow';
-import SportsKabaddiIcon from '@material-ui/icons/SportsKabaddi';
-import EqualizerIcon from '@material-ui/icons/Equalizer';
-
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({

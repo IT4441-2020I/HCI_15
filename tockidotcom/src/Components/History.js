@@ -14,6 +14,25 @@ import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
+
+const useStyles = makeStyles({
+  root: {
+    minWidth: 275,
+  },
+  bullet: {
+    display: "inline-block",
+    margin: "0 2px",
+    transform: "scale(0.8)",
+  },
+  title: {
+    fontSize: 14,
+  },
+  pos: {
+    marginBottom: 12,
+  },
+});
 
 const useRowStyles = makeStyles({
   root: {
@@ -70,9 +89,13 @@ function Row(props) {
               <Typography variant="h6" gutterBottom component="div">
                 Chi tiết lỗi
               </Typography>
-              <Table size="small" aria-label="purchases" style={{ backgroundColor: "rgb(221, 221, 221)"}}>
+              <Table
+                size="small"
+                aria-label="purchases"
+                style={{ backgroundColor: "rgb(221, 221, 221)" }}
+              >
                 <TableHead>
-                  <TableRow >
+                  <TableRow>
                     <TableCell>Từ gõ sai</TableCell>
                     <TableCell>Quy tắc gõ</TableCell>
                     <TableCell align="right">Số lần gõ sai</TableCell>
@@ -80,7 +103,7 @@ function Row(props) {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  <TableRow >
+                  <TableRow>
                     <TableCell component="th" scope="row">
                       ngu
                     </TableCell>
@@ -125,36 +148,49 @@ const rows = [
 ];
 
 export default function CollapsibleTable() {
+  const classess = useStyles();
   return (
     <div>
-      <h1>Lịch sử luyện gõ</h1>
-      <TableContainer component={Paper}>
-        <Table aria-label="collapsible table">
-          <TableHead style={{ backgroundColor: "#3f51b5", color: "white" }}>
-            <TableRow style={{ color: "white" }}>
-              <TableCell />
-              <TableCell style={{ color: "white" }}>Người dùng</TableCell>
-              <TableCell style={{ color: "white" }} align="right">
-                Bài luyện tập
-              </TableCell>
-              <TableCell style={{ color: "white" }} align="right">
-                Thời gian hoàn thành bài(phút)
-              </TableCell>
-              <TableCell style={{ color: "white" }} align="right">
-                Điểm số(/100)
-              </TableCell>
-              <TableCell style={{ color: "white" }} align="right">
-                Thời gian
-              </TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {rows.map((row) => (
-              <Row key={row.name} row={row} style={{fontWeight:"bold"}}/>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
+      <Card className={classess.root}>
+        <CardContent>
+          <Typography>
+            <h1>Lịch sử luyện gõ</h1>
+            <TableContainer component={Paper}>
+              <Table aria-label="collapsible table">
+                <TableHead
+                  style={{ backgroundColor: "#3f51b5", color: "white" }}
+                >
+                  <TableRow style={{ color: "white" }}>
+                    <TableCell />
+                    <TableCell style={{ color: "white" }}>Người dùng</TableCell>
+                    <TableCell style={{ color: "white" }} align="right">
+                      Bài luyện tập
+                    </TableCell>
+                    <TableCell style={{ color: "white" }} align="right">
+                      Thời gian hoàn thành bài(phút)
+                    </TableCell>
+                    <TableCell style={{ color: "white" }} align="right">
+                      Điểm số(/100)
+                    </TableCell>
+                    <TableCell style={{ color: "white" }} align="right">
+                      Thời gian
+                    </TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {rows.map((row) => (
+                    <Row
+                      key={row.name}
+                      row={row}
+                      style={{ fontWeight: "bold" }}
+                    />
+                  ))}
+                </TableBody>
+              </Table>
+            </TableContainer>
+          </Typography>
+        </CardContent>
+      </Card>
     </div>
-  );
+  );  
 }
