@@ -10,6 +10,8 @@ import PersonIcon from "@material-ui/icons/Person";
 import AddIcon from "@material-ui/icons/Add";
 import ArrowRightIcon from "@material-ui/icons/ArrowRight";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
 import {
   Button,
   Checkbox,
@@ -64,47 +66,59 @@ function CustomizedTables() {
   const classes = useStyles1();
 
   return (
-    <TableContainer component={Paper}>
-      <Table className={classes.table} aria-label="customized table">
-        <TableHead>
-          <TableRow>
-            <StyledTableCell></StyledTableCell>
-            <StyledTableCell align="right">Số người tham gia</StyledTableCell>
-            <StyledTableCell align="right">
-              Số lượng kiểm tra đã thực hiện
-            </StyledTableCell>
-            <StyledTableCell align="right">Thời gian còn lại</StyledTableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map((row) => (
-            <StyledTableRow key={row.id}>
-              <StyledTableCell component="th" scope="row">
-                {row.id}
-                <Link to="competition">
-                <Button
-                  variant="outlined"
-                  color="white"
-                  className={classes.button}
-                  startIcon={<ArrowRightIcon />}
-                  size="small"
-                  style={{ marginLeft: "10px" }}
-                >
-                  Tham gia
-                </Button>
-                </Link>
-              </StyledTableCell>
+    <Card>
+      <CardContent>
+        <TableContainer component={Paper}>
+          <Table className={classes.table} aria-label="customized table">
+            <TableHead>
+              <TableRow>
+                <StyledTableCell></StyledTableCell>
+                <StyledTableCell align="right">
+                  Số người tham gia
+                </StyledTableCell>
+                <StyledTableCell align="right">
+                  Số lượng kiểm tra đã thực hiện
+                </StyledTableCell>
+                <StyledTableCell align="right">
+                  Thời gian còn lại
+                </StyledTableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {rows.map((row) => (
+                <StyledTableRow key={row.id}>
+                  <StyledTableCell component="th" scope="row">
+                    {row.id}
+                    <Link to="competition">
+                      <Button
+                        variant="outlined"
+                        color="white"
+                        className={classes.button}
+                        startIcon={<ArrowRightIcon />}
+                        size="small"
+                        style={{ marginLeft: "10px" }}
+                      >
+                        Tham gia
+                      </Button>
+                    </Link>
+                  </StyledTableCell>
 
-              <StyledTableCell align="right">
-                {row.participants}
-              </StyledTableCell>
-              <StyledTableCell align="right">{row.tests_taken}</StyledTableCell>
-              <StyledTableCell align="right">{row.time_left}</StyledTableCell>
-            </StyledTableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+                  <StyledTableCell align="right">
+                    {row.participants}
+                  </StyledTableCell>
+                  <StyledTableCell align="right">
+                    {row.tests_taken}
+                  </StyledTableCell>
+                  <StyledTableCell align="right">
+                    {row.time_left}
+                  </StyledTableCell>
+                </StyledTableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </CardContent>
+    </Card>
   );
 }
 const times = [
