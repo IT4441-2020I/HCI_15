@@ -5,7 +5,7 @@ import Learning from "./Components/Learning";
 import Battle from "./Components/Battle";
 import History from "./Components/History";
 import Evaluate from "./Components/Evaluate";
-import React, {useState} from "react";
+import React, { useState } from "react";
 import clsx from "clsx";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
@@ -32,7 +32,10 @@ import PersonIcon from "@material-ui/icons/Person";
 import Setting from "@material-ui/icons/Settings";
 import Competion from "./Components/Competion";
 import HomePage from "./Components/HomePage";
-
+import ChartDemo from "./Components/Chart";
+import Button from "@material-ui/core/Button";
+import Menu from "@material-ui/core/Menu";
+import MenuItem from "@material-ui/core/MenuItem";
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -102,6 +105,16 @@ export default function App() {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
 
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -131,7 +144,7 @@ export default function App() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap style={{color:"white"}}>
+          <Typography variant="h6" noWrap style={{ color: "white" }}>
             Tốc ký trong tầm tay
           </Typography>
         </Toolbar>
@@ -223,14 +236,45 @@ export default function App() {
         </List>
         <Divider />
         <List>
-          {["Thông tin cá nhân", "Cài đặt"].map((text, index) => (
-            <ListItem button key={text}>
+          <ListItem
+            button
+            onClick={handleClick}
+            style={{ textDecoration: "none", color: "black" }}
+          >
+            <ListItemIcon>
+              <PersonIcon />
+            </ListItemIcon>
+            <ListItemText primary="Thông tin cá nhân" />
+          </ListItem>
+          <Menu
+            id="simple-menu"
+            anchorEl={anchorEl}
+            keepMounted
+            open={Boolean(anchorEl)}
+            onClose={handleClose}
+            style={{ position: "absolute" }}
+          >
+            <Link to="chart">
+              <MenuItem
+                onClick={handleClose}
+                style={{ textDecoration: "none", color: "black" }}
+              >
+                Thống kê cá nhân
+              </MenuItem>
+            </Link>
+            <MenuItem onClick={handleClose}>Lịch sử luyện tập</MenuItem>
+          </Menu>
+          <Link
+            to="/history"
+            style={{ textDecoration: "none", color: "black" }}
+          >
+            <ListItem button>
               <ListItemIcon>
-                {index % 2 === 0 ? <PersonIcon /> : <Setting />}
+                <Setting />
               </ListItemIcon>
-              <ListItemText primary={text} />
+              <ListItemText primary="Cài đặt" />
             </ListItem>
-          ))}
+          </Link>
         </List>
       </Drawer>
       <main className={classes.content}>
@@ -256,6 +300,9 @@ export default function App() {
           </Route>
           <Route path="/evaluate">
             <Evaluate />
+          </Route>
+          <Route path="/chart">
+            <ChartDemo />
           </Route>
         </Switch>
       </main>

@@ -4,10 +4,12 @@ import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 import bg from "../image/69.jpg";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import TextField from '@material-ui/core/TextField';
 export class HomePage extends Component {
   render() {
     return (
       <div>
+        
         <div
           style={{
             width: "100vw",
@@ -23,9 +25,11 @@ export class HomePage extends Component {
               <Typography variant="h1" gutterBotton>
                 Tốc kí trong tầm tay
               </Typography>
+              <TextField color="secondary" variant="outlined" style={{width:"800px",marginTop:"20px"}} label="Search something in website"></TextField>
               <Grid container spacing={3} style={{ marginTop: "25px" }}>
                 <Grid item xs={2}></Grid>
                 <Grid item xs={3}>
+                
                   <Link to="/learning">
                   <Button
                     fullWidth
