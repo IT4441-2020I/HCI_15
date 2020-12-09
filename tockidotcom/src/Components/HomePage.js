@@ -9,10 +9,10 @@ export class HomePage extends Component {
   render() {
     return (
       <div>
-        
+
         <div
           style={{
-            width: "100vw",
+            width: "1903px",
             height: "100vh",
             position: "absolute",
             top: 0,
@@ -25,45 +25,48 @@ export class HomePage extends Component {
               <Typography variant="h1" gutterBotton>
                 Tốc kí trong tầm tay
               </Typography>
-              <TextField color="secondary" variant="outlined" style={{width:"800px",marginTop:"20px"}} label="Search something in website"></TextField>
+              <TextField color="secondary" variant="outlined" style={{ width: "800px", marginTop: "20px" }} label="Search something in website"></TextField>
               <Grid container spacing={3} style={{ marginTop: "25px" }}>
                 <Grid item xs={2}></Grid>
                 <Grid item xs={3}>
-                
+
                   <Link to="/learning">
-                  <Button
-                    fullWidth
-                    variant="contained"
-                    color="primary"
-                    size="large"
-                  >
-                    Bắt đầu học
+                    <Button
+                      fullWidth
+                      variant="contained"
+                      color="primary"
+                      size="large"
+                    >
+                      Bắt đầu học
                   </Button>
                   </Link>
                 </Grid>
                 <Grid item xs={1}></Grid>
                 <Grid item xs={3}>
-                  <Button
-                    fullWidth
-                    variant="contained"
-                    color="primary"
-                    size="large"
-                  >
-                    Quy tắc gõ
+                  <a href="#quytacgo">
+                    <Button
+                      fullWidth
+                      variant="contained"
+                      color="primary"
+                      size="large"
+                    >
+                      Quy tắc gõ
                   </Button>
+                  </a>
                 </Grid>
                 <Grid item xs={2}></Grid>
               </Grid>
             </Box>
           </Container>
         </div>
-        <Container maxWidth="md" style={{ marginTop: "90vh" }}>
+        <Container maxWidth="md" style={{ marginTop: "120vh" }} id="quytacgo">
           <Box
             bgcolor="white"
             boxShadow="3"
             borderRadius="2px"
             p="24px"
             mt="15px"
+            style={{ marginBottom: "70px" }}
           >
             <Typography variant="h6" gutterBottom>
               Làm thế nào để thuộc được các chữ cái trên bàn phím steno

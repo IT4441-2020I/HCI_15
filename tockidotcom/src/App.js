@@ -101,6 +101,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function App() {
+  const [display, setDisplay] = useState(false);
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = useState(false);
@@ -123,6 +124,12 @@ export default function App() {
     setOpen(false);
   };
 
+  const displayMenu = () => {
+    let temp = !display;
+    console.log(temp);
+    setDisplay(temp);
+  }
+  console.log("build lai");
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -147,6 +154,12 @@ export default function App() {
           <Typography variant="h6" noWrap style={{ color: "white" }}>
             Tốc ký trong tầm tay
           </Typography>
+          <div className="login-button">
+            <i href="#" className="fa fa-facebook"></i>
+            <i href="#" className="fa fa-twitter"></i>
+            <i href="#" className="fa fa-google"></i>
+            <i  className="far fa-user"></i>
+          </div>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -167,13 +180,13 @@ export default function App() {
             {theme.direction === "rtl" ? (
               <ChevronRightIcon />
             ) : (
-              <ChevronLeftIcon />
-            )}
+                <ChevronLeftIcon />
+              )}
           </IconButton>
         </div>
         <Divider />
         <List>
-          <Link to="/home" style={{ textDecoration: "none", color: "black" }}>
+          <Link to="/" style={{ textDecoration: "none", color: "black" }}>
             <ListItem button>
               <ListItemIcon>
                 <HomeIcon />
@@ -236,34 +249,22 @@ export default function App() {
         </List>
         <Divider />
         <List>
-          <ListItem
-            button
-            onClick={handleClick}
-            style={{ textDecoration: "none", color: "black" }}
-          >
-            <ListItemIcon>
-              <PersonIcon />
-            </ListItemIcon>
-            <ListItemText primary="Thông tin cá nhân" />
-          </ListItem>
-          <Menu
-            id="simple-menu"
-            anchorEl={anchorEl}
-            keepMounted
-            open={Boolean(anchorEl)}
-            onClose={handleClose}
-            style={{ position: "absolute" }}
-          >
-            <Link to="chart">
-              <MenuItem
-                onClick={handleClose}
-                style={{ textDecoration: "none", color: "black" }}
-              >
-                Thống kê cá nhân
-              </MenuItem>
-            </Link>
-            <MenuItem onClick={handleClose}>Lịch sử luyện tập</MenuItem>
-          </Menu>
+          <div>
+            <ListItem
+              button
+              style={{ textDecoration: "none", color: "black" }}
+              onClick={displayMenu}
+            >
+              <ListItemIcon>
+                <PersonIcon />
+              </ListItemIcon>
+              <ListItemText primary="Thông tin cá nhân" />
+            </ListItem>
+            {display == true ? <div className="menu-dropdown">
+              <Link to="chart" style={{ textDecoration: "none", color: "black" }}><div className="item-dropdown" onClick={displayMenu}>Thống kê</div></Link>
+              <div className="item-dropdown" onClick={displayMenu}>Lịch sử luyện tập</div>
+            </div> : <div></div>}
+          </div>
           <Link
             to="/history"
             style={{ textDecoration: "none", color: "black" }}
@@ -280,7 +281,7 @@ export default function App() {
       <main className={classes.content}>
         <div className={classes.toolbar} />
         <Switch>
-          <Route path="/home">
+          <Route exact path="/">
             <HomePage />
           </Route>
           <Route path="/competition">
