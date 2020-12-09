@@ -4,6 +4,7 @@ import { Row, Col, PageHeader, Button, Card, Input, Statistic } from 'antd';
 import 'antd/dist/antd.css';
 import { SyncOutlined } from '@ant-design/icons';
 import { Content } from 'antd/lib/layout/layout';
+import {AccountBox , StarRate,TrendingUp} from '@material-ui/icons';
 
 import './Practice.css';
 

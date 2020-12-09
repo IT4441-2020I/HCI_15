@@ -5,6 +5,7 @@ import Learning from "./Components/Learning";
 import Battle from "./Components/Battle";
 import History from "./Components/History";
 import Evaluate from "./Components/Evaluate";
+import Test from "./Components/Test";
 import React, {useState} from "react";
 import clsx from "clsx";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
@@ -261,6 +262,9 @@ export default function App() {
           </Route>
           <Route path="/evaluate">
             <Evaluate />
+          </Route>
+          <Route path="/test">
+            <Test />
           </Route>
         </Switch>
       </main>
