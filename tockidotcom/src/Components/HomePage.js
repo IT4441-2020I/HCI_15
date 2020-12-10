@@ -3,7 +3,12 @@ import { Box, Button, Container, Grid } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 import bg from "../image/69.jpg";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 import TextField from '@material-ui/core/TextField';
 export class HomePage extends Component {
   render() {

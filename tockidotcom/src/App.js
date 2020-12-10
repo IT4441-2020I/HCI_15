@@ -1,6 +1,6 @@
 import "./App.css";
-import { BrowserRouter as Switch, Route, Link } from "react-router-dom";
-import Practice from "./Components/Practice"; 
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Practice from "./Components/Practice";
 import LearningKey from "./Components/LearningKey";
 import LearningRhythm from "./Components/LearningRhythm";
 import LearningWord from "./Components/LearningWord";
@@ -33,7 +33,7 @@ import TrendingUpIcon from "@material-ui/icons/TrendingUp";
 import HistoryIcon from "@material-ui/icons/History";
 import PersonIcon from "@material-ui/icons/Person";
 import Setting from "@material-ui/icons/Settings";
-import Competion from "./Components/Competion"; 
+import Competion from "./Components/Competion";
 import HomePage from "./Components/HomePage";
 import ChartDemo from "./Components/Chart";
 const drawerWidth = 240;
@@ -118,13 +118,15 @@ export default function App() {
     let temp = !display;
     console.log(temp);
     setDisplay(temp);
-  }
+    handleDrawerOpen();
+  };
 
   const displayMenuLearning = () => {
     let temp1 = !display;
     console.log(temp1);
     setDisplay(temp1);
-  }
+    handleDrawerOpen();
+  };
   console.log("build lai");
   return (
     <div className={classes.root}>
@@ -176,8 +178,8 @@ export default function App() {
             {theme.direction === "rtl" ? (
               <ChevronRightIcon />
             ) : (
-                <ChevronLeftIcon />
-              )}
+              <ChevronLeftIcon />
+            )}
           </IconButton>
         </div>
         <Divider />
@@ -194,7 +196,8 @@ export default function App() {
             to="/learning"
             style={{ textDecoration: "none", color: "black" }}
           > */}
-          <ListItem button
+          <ListItem
+            button
             style={{ textDecoration: "none", color: "black" }}
             onClick={displayMenuLearning}
           >
@@ -203,30 +206,44 @@ export default function App() {
             </ListItemIcon>
             <ListItemText primary="Học gõ" />
           </ListItem>
-          {display === true ?
+          {display === true ? (
             <div className="menu-dropdown">
-              <Link to="learningKey" style={{ textDecoration: "none", color: "black" }}>
+              <Link
+                to="learningKey"
+                style={{ textDecoration: "none", color: "black" }}
+              >
                 <div className="item-dropdown" onClick={displayMenuLearning}>
                   Học gõ phím
                 </div>
               </Link>
-              <Link to="learningRhythm" style={{ textDecoration: "none", color: "black" }}>
+              <Link
+                to="learningRhythm"
+                style={{ textDecoration: "none", color: "black" }}
+              >
                 <div className="item-dropdown" onClick={displayMenuLearning}>
                   Học gõ âm tiết
                 </div>
               </Link>
-              <Link to="learningWord" style={{ textDecoration: "none", color: "black" }}>
+              <Link
+                to="learningWord"
+                style={{ textDecoration: "none", color: "black" }}
+              >
                 <div className="item-dropdown" onClick={displayMenuLearning}>
                   Học gõ từ
                 </div>
               </Link>
-              <Link to="learningSentence" style={{ textDecoration: "none", color: "black" }}>
+              <Link
+                to="learningSentence"
+                style={{ textDecoration: "none", color: "black" }}
+              >
                 <div className="item-dropdown" onClick={displayMenuLearning}>
                   Học gõ câu
                 </div>
               </Link>
-            </div> : <div></div>
-          }
+            </div>
+          ) : (
+            <div></div>
+          )}
           {/* </Link> */}
           <Link
             to="/practice"
@@ -283,16 +300,23 @@ export default function App() {
               </ListItemIcon>
               <ListItemText primary="Thông tin cá nhân" />
             </ListItem>
-            {display === true ? <div className="menu-dropdown">
-              <Link to="chart" style={{ textDecoration: "none", color: "black" }}>
+            {display === true ? (
+              <div className="menu-dropdown">
+                <Link
+                  to="chart"
+                  style={{ textDecoration: "none", color: "black" }}
+                >
+                  <div className="item-dropdown" onClick={displayMenu}>
+                    Thống kê
+                  </div>
+                </Link>
                 <div className="item-dropdown" onClick={displayMenu}>
-                  Thống kê
+                  Lịch sử luyện tập
                 </div>
-              </Link>
-              <div className="item-dropdown" onClick={displayMenu}>
-                Lịch sử luyện tập
               </div>
-            </div> : <div></div>}
+            ) : (
+              <div></div>
+            )}
           </div>
           <Link
             to="/history"
