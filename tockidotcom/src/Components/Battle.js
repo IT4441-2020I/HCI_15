@@ -27,21 +27,10 @@ import {
   TextField,
   withStyles,
 } from "@material-ui/core";
-const StyledTableCell = withStyles((theme) => ({
-  head: {
-    backgroundColor: theme.palette.common.white,
-    color: theme.palette.common.black,
-  },
-  body: {
-    fontSize: 14,
-  },
-}))(TableCell);
 
 const StyledTableRow = withStyles((theme) => ({
   root: {
-    "&:nth-of-type(odd)": {
-      backgroundColor: theme.palette.action.hover,
-    },
+    backgroundColor: theme.palette.common.white,
   },
 }))(TableRow);
 
@@ -70,24 +59,24 @@ function CustomizedTables() {
       <CardContent>
         <TableContainer component={Paper}>
           <Table className={classes.table} aria-label="customized table">
-            <TableHead>
+            <TableHead style={{ backgroundColor: "#3f51b5", color: "white" }}>
               <TableRow>
-                <StyledTableCell></StyledTableCell>
-                <StyledTableCell align="right">
+                <TableCell></TableCell>
+                <TableCell style={{ color: "white" }} align="right">
                   Số người tham gia
-                </StyledTableCell>
-                <StyledTableCell align="right">
+                </TableCell>
+                <TableCell style={{ color: "white" }} align="right">
                   Số lượng kiểm tra đã thực hiện
-                </StyledTableCell>
-                <StyledTableCell align="right">
+                </TableCell>
+                <TableCell style={{ color: "white" }} align="right">
                   Thời gian còn lại
-                </StyledTableCell>
+                </TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {rows.map((row) => (
                 <StyledTableRow key={row.id}>
-                  <StyledTableCell component="th" scope="row">
+                  <TableCell component="th" scope="row">
                     {row.id}
                     <Link to="competition">
                       <Button
@@ -101,17 +90,10 @@ function CustomizedTables() {
                         Tham gia
                       </Button>
                     </Link>
-                  </StyledTableCell>
-
-                  <StyledTableCell align="right">
-                    {row.participants}
-                  </StyledTableCell>
-                  <StyledTableCell align="right">
-                    {row.tests_taken}
-                  </StyledTableCell>
-                  <StyledTableCell align="right">
-                    {row.time_left}
-                  </StyledTableCell>
+                  </TableCell>
+                  <TableCell align="right">{row.participants}</TableCell>
+                  <TableCell align="right">{row.tests_taken}</TableCell>
+                  <TableCell align="right">{row.time_left}</TableCell>
                 </StyledTableRow>
               ))}
             </TableBody>
@@ -227,6 +209,7 @@ function SimpleTabs() {
           onChange={handleChange}
           aria-label="simple tabs example"
           variant="fullWidth"
+          indicatorColor="primary"
         >
           <Tab icon={<PersonIcon />} label="Tham gia" {...a11yProps(0)} />
           <Tab icon={<AddIcon />} label="Tạo mới" {...a11yProps(1)} />
@@ -254,14 +237,14 @@ function SimpleTabs() {
             </Typography>
             <SelectTextField />
             <FormControlLabel
-              control={<Checkbox />}
+              control={<Checkbox color="primary" />}
               label="Tạo một cuộc thi riêng"
               fullWidth
             />
             <br />
             <Button
               variant="contained"
-              color="secondary"
+              color="primary"
               className={classes.button}
               startIcon={<AddIcon />}
               style={{ marginLeft: "170px", marginTop: "15px" }}
