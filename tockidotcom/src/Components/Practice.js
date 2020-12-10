@@ -7,6 +7,7 @@ import { SyncOutlined } from '@ant-design/icons';
 import { Content } from 'antd/lib/layout/layout';
 import CountUp from 'react-countup';
 import { useCountUp } from 'react-countup';
+import {AccountBox , StarRate,TrendingUp} from '@material-ui/icons';
 
 import './Practice.css';
 

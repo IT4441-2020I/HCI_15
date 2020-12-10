@@ -3,10 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@ant-design/icons": "^4.3.0",
-    "@devexpress/dx-react-chart": "^2.7.3",
-    "@devexpress/dx-react-chart-material-ui": "^2.7.3",
-    "@devexpress/dx-react-core": "^2.7.3",
     "@material-ui/core": "^4.11.1",
     "@material-ui/data-grid": "^4.0.0-alpha.11",
     "@material-ui/icons": "^4.9.1",
@@ -24,6 +20,7 @@
     "react-scripts": "^4.0.1",
     "react-swipeable-views": "^0.13.9",
     "react-swipeable-views-native": "^0.13.2",
+    "recharts": "^1.8.5",
     "web-vitals": "^0.2.4"
   },
   "scripts": {

@@ -9,6 +9,7 @@ import Battle from "./Components/Battle";
 import History from "./Components/History";
 import Evaluate from "./Components/Evaluate";
 import React, { useState } from "react";
+import Test from "./Components/Test";
 import clsx from "clsx";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
