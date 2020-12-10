@@ -196,7 +196,7 @@ export default function App() {
           > */}
           <ListItem button
             style={{ textDecoration: "none", color: "black" }}
-            onClick={this.displayMenuLearning}
+            onClick={displayMenuLearning}
           >
             <ListItemIcon>
               <LocalLibraryIcon />
@@ -276,7 +276,7 @@ export default function App() {
             <ListItem
               button
               style={{ textDecoration: "none", color: "black" }}
-              onClick={this.displayMenu}
+              onClick={displayMenu}
             >
               <ListItemIcon>
                 <PersonIcon />
