@@ -12,7 +12,7 @@ export class HomePage extends Component {
 
         <div
           style={{
-            width: "1903px",
+            width: "100%",
             height: "100vh",
             position: "absolute",
             top: 0,
