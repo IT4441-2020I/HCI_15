@@ -23,7 +23,7 @@
   
   .keyboard__row > * {
       position: relative;
-      background: rgb(80, 76, 76);
+      background: black;
       text-align: center;
       color: #eee;
       float: left;

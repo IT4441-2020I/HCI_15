@@ -4,13 +4,14 @@
 .menu-dropdown{
     margin: auto;
     width: calc(100% - 5px);
-    text-align: center;
+    text-align: left;
+    padding-left: 60px;
     font-family: "Roboto", "Helvetica", "Arial", sans-serif;
     font-weight: 400;
     line-height: 1.334;
     letter-spacing: 0em;
-    background-color: rgb(241, 241, 241);
-    border: 0.5px solid rgb(209, 209, 209);
+    background-color: white;
+    /* border: 0.5px solid rgb(209, 209, 209); */
     border-radius: 3px;
     cursor: pointer;
 }
@@ -20,7 +21,7 @@
 }
 .item-dropdown:hover{
     
-    background-color:white;
+    background-color:rgba(0, 0, 0, 0.04);
 }
 
 .fa,.far {
