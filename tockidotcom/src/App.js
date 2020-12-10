@@ -102,6 +102,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function App() {
   const [display, setDisplay] = useState(false);
+  const [display1, setDisplay1] = useState(false);
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = useState(false);
@@ -122,9 +123,9 @@ export default function App() {
   };
 
   const displayMenuLearning = () => {
-    let temp1 = !display;
+    let temp1 = !display1;
     console.log(temp1);
-    setDisplay(temp1);
+    setDisplay1(temp1);
     handleDrawerOpen();
   };
   console.log("build lai");
@@ -206,7 +207,7 @@ export default function App() {
             </ListItemIcon>
             <ListItemText primary="Học gõ" />
           </ListItem>
-          {display === true ? (
+          {display1 === true ? (
             <div className="menu-dropdown">
               <Link
                 to="learningKey"
