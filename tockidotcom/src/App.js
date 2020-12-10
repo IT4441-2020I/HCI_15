@@ -104,6 +104,7 @@ const useStyles = makeStyles((theme) => ({
 export default function App() {
   const [display, setDisplay] = useState(false);
   const [display1, setDisplay1] = useState(false);
+  const [display2, setDisplay2] = useState(false);
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = useState(false);
@@ -129,7 +130,12 @@ export default function App() {
     setDisplay1(temp1);
     handleDrawerOpen();
   };
-  console.log("build lai");
+  const displayMenuBattle = () => {
+    let temp = !display2;
+    console.log(temp);
+    setDisplay2(temp);
+    handleDrawerOpen();
+  };
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -258,13 +264,30 @@ export default function App() {
               <ListItemText primary="Luyện tập" />
             </ListItem>
           </Link>
-          <Link to="/battle" style={{ textDecoration: "none", color: "black" }}>
-            <ListItem button>
+          <Link  style={{ textDecoration: "none", color: "black" }}>
+            <ListItem button onClick={displayMenuBattle}>
               <ListItemIcon>
                 <EmojiEventsIcon />
               </ListItemIcon>
               <ListItemText primary="Thi đấu" />
             </ListItem>
+            {display2 === true ? (
+              <div className="menu-dropdown">
+                <Link
+                  to="chart"
+                  style={{ textDecoration: "none", color: "black" }}
+                >
+                  <div className="item-dropdown" onClick={displayMenuBattle}>
+                    Tham gia
+                  </div>
+                </Link>
+                <div className="item-dropdown" onClick={displayMenuBattle}>
+                  Tạo mới
+                </div>
+              </div>
+            ) : (
+              <div></div>
+            )}
           </Link>
           <Link
             to="/evaluate"
