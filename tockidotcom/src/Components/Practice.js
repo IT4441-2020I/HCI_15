@@ -1,34 +1,53 @@
 import React, { Component } from 'react';
 
-import { Row, Col, PageHeader, Button, Card, Input, Statistic } from 'antd';
+import { Row, Col, PageHeader, Card, Input, Statistic, Select } from 'antd';
+import Button from "@material-ui/core/Button";
 import 'antd/dist/antd.css';
 import { SyncOutlined } from '@ant-design/icons';
 import { Content } from 'antd/lib/layout/layout';
+import CountUp from 'react-countup';
+import { useCountUp } from 'react-countup';
 
 import './Practice.css';
 
 const { Countdown } = Statistic;
+const { Option } = Select;
 
-const deadline = Date.now() + 5000 * 60; 
+const deadline = Date.now() + 300 * 60;
 
 class Practice extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            test: 0,
+            check: false,
+            speed: 0,
+            keyTrue: 0,
+            keyFalse: 0,
         }
     }
 
     onStart = () => {
-        
+
     }
 
     onChangeKey = () => {
-        this.setState({ test: 1 })
+        let temp = this.state.check;
+        this.setState({
+            check: !temp,
+        })
+    }
+
+    handleFinish = () => {
+        this.setState({
+            speed: 30,
+            keyTrue: 27,
+            keyFalse: 3,
+        })
     }
 
     render() {
+        // const { aKey, uKey } = this.state;
 
         console.log('render' + this.state.test);
 
@@ -39,28 +58,49 @@ class Practice extends Component {
             <div
                 style={{
                     backgroundColor: "white",
-                    boxShadow: 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px',
+                    // boxShadow: 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px',
                     minHeight: '500px',
                 }}
             >
                 <Content>
                     <PageHeader
-                        className="site-page-header"
+                        className="site-page-header pageHeader"
                         style={{ borderBottom: '1.5px solid #f0f2f5' }}
-                        title="Luyện tập"
+                        title={<div style={{ fontSize: '32px', paddingBottom: '10px' }}>Luyện tập</div>}
                         subTitle="gõ tốc ký Tiếng Việt"
+                        onBack={() => null}
                         extra={[
-                            <Button key="1" type="primary" onPress={this.onStart}>
+                            <Button
+                                variant="contained"
+                                color="primary"
+                                onPress={this.onStart}
+                            >
                                 Bắt đầu
                             </Button>,
-                            <Button key="2" type="primary">
+                            <Button
+                                variant="contained"
+                                color="primary"
+                                onPress={this.onStart}
+                                style={{ marginLeft: '15px' }}
+                            >
                                 Tạm dừng
-                        </Button>,
-                            <Button key="3" type="primary">
+                            </Button>,
+                            <Button
+                                variant="contained"
+                                color="primary"
+                                onPress={this.onStart}
+                                style={{ marginLeft: '15px' }}
+                            >
                                 Kết thúc
-                    </Button>,
-                            <Button key="4" type="primary">
-                                <SyncOutlined /> Làm mới
+                            </Button>,
+                            <Button
+                                variant="contained"
+                                color="primary"
+                                onPress={this.onStart}
+                                style={{ marginLeft: '15px' }}
+                            >
+                                Làm mới
+                                <SyncOutlined style={{ paddingLeft: '10px' }} />
                             </Button>
                         ]}
                     />
@@ -77,7 +117,7 @@ class Practice extends Component {
                                     boxShadow: 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px',
                                     fontSize: 32,
                                 }}>
-                                   <Countdown value={deadline} />
+                                    <Countdown value={deadline} onFinish={this.handleFinish} />
                                 </div>
                                 <Card
                                     title="Kết quả"
@@ -86,14 +126,19 @@ class Practice extends Component {
                                         boxShadow: 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px',
                                     }}
                                 >
-                                    <p>Tốc độ gõ (từ/ phút): </p>
-                                    <p>Số từ gõ đúng: </p>
-                                    <p>Số từ gõ sai: </p>
+                                    <p>Tốc độ gõ (từ/ phút): <span style={{ fontSize: 24 }}>{this.state.speed}</span></p>
+                                    <p>Số từ gõ đúng: <span style={{ fontSize: 24, color: '#3FCC28' }}>{this.state.keyTrue}</span> </p>
+                                    <p>Số từ gõ sai: <span style={{ fontSize: 24, color: '#F3574F' }}>{this.state.keyFalse}</span></p>
 
                                 </Card>
                             </div>
                         </Col>
                         <Col span='18'>
+                            <Select defaultValue="Luyện gõ theo câu" style={{ width: 180, margin: 20, boxShadow: 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px' }}>
+                                <Option value="jack">Luyện gõ theo từ</Option>
+                                <Option value="lucy">Luyện gõ theo câu</Option>
+                                <Option value="Yiminghe">Luyện gõ đoạn văn</Option>
+                            </Select>
                             <div style={{
                                 margin: 20,
                                 backgroundColor: 'white',
@@ -121,12 +166,17 @@ class Practice extends Component {
                                     margin: 20,
                                     boxShadow: 'rgba(100, 100, 111, 0.2) 0px 4px 15px 0px',
                                 }}>
-                                    <Input size='large' placeholder="Start practice" onChange={this.onChangeKey} />
+                                    <Input
+                                        size='large'
+                                        placeholder="Start practice"
+                                        onChange={this.onChangeKey}
+                                        style={{ height: '80px' }}
+                                    />
                                 </Row>
 
                                 <Row>
                                     <Col span='6'></Col>
-                                    <Col span='12'>
+                                    <Col span='12' style={{ minWidth: 300 }}>
                                         <div style={{
                                             height: 30,
                                             width: 372,
@@ -138,7 +188,6 @@ class Practice extends Component {
                                             borderRadius: 5,
                                             marginRight: 8,
                                             marginBottom: 2,
-
                                         }}></div>
 
                                         <div style={{ display: "flex" }}>
@@ -156,7 +205,7 @@ class Practice extends Component {
                                             <KeyBoard item="U" />
                                             <KeyBoard item="O" />
                                             <KeyBoard item="E" />
-                                            <KeyBoard item="A" />
+                                            <KeyBoard1 item="A" bgColor={this.state.check ? '#3FCC28' : 'black'} />
                                         </div>
                                     </Col>
                                     <Col span='6'></Col>
@@ -178,6 +227,29 @@ const KeyBoard = (props) => {
                 height: 50,
                 width: 30,
                 backgroundColor: 'black',
+                color: 'white',
+                fontSize: 18,
+                display: 'flex',
+                alignItems: "center",
+                justifyContent: "center",
+                borderRadius: 5,
+                marginRight: 8,
+                marginBottom: 2,
+
+            }}
+        >
+            {props.item}
+        </div>
+    )
+}
+
+const KeyBoard1 = (props) => {
+    return (
+        <div
+            style={{
+                height: 50,
+                width: 30,
+                backgroundColor: props.bgColor,
                 color: 'white',
                 fontSize: 18,
                 display: 'flex',
