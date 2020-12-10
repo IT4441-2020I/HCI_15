@@ -37,6 +37,7 @@ import Setting from "@material-ui/icons/Settings";
 import Competion from "./Components/Competion";
 import HomePage from "./Components/HomePage";
 import ChartDemo from "./Components/Chart";
+import CreateBattle from "./Components/CreateBattle";
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -264,7 +265,7 @@ export default function App() {
               <ListItemText primary="Luyện tập" />
             </ListItem>
           </Link>
-          <Link  style={{ textDecoration: "none", color: "black" }}>
+          <Link style={{ textDecoration: "none", color: "black" }}>
             <ListItem button onClick={displayMenuBattle}>
               <ListItemIcon>
                 <EmojiEventsIcon />
@@ -274,16 +275,21 @@ export default function App() {
             {display2 === true ? (
               <div className="menu-dropdown">
                 <Link
-                  to="chart"
+                  to="battle"
                   style={{ textDecoration: "none", color: "black" }}
                 >
                   <div className="item-dropdown" onClick={displayMenuBattle}>
                     Tham gia
                   </div>
                 </Link>
-                <div className="item-dropdown" onClick={displayMenuBattle}>
-                  Tạo mới
-                </div>
+                <Link
+                  to="createbattle"
+                  style={{ textDecoration: "none", color: "black" }}
+                >
+                  <div className="item-dropdown" onClick={displayMenuBattle}>
+                    Tạo mới
+                  </div>
+                </Link>
               </div>
             ) : (
               <div></div>
@@ -368,6 +374,9 @@ export default function App() {
           <Route path="/battle">
             <Battle />
           </Route>
+          <Route path="/createbattle">
+            <CreateBattle />
+          </Route>
           <Route path="/practice">
             <Practice />
           </Route>
@@ -391,6 +400,9 @@ export default function App() {
           </Route>
           <Route path="/chart">
             <ChartDemo />
+          </Route>
+          <Route path="/test">
+            <Test />
           </Route>
         </Switch>
       </main>
