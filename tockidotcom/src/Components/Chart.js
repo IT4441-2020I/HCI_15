@@ -13,12 +13,11 @@ import { Animation } from "@devexpress/dx-react-chart";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardHeader from '@material-ui/core/CardHeader';
-
 const generateData = (n) => {
   const ret = [];
   let y = 0;
   for (let i = 0; i < n; i += 1) {
-    y += Math.round(Math.random() * 10 - 5);
+    y =Math.abs( Math.round(Math.random() * 10 - 5));
     ret.push({ x: i, y });
   }
   return ret;
@@ -75,7 +74,7 @@ export default class ChartDemo extends React.PureComponent {
                   <ValueAxis max={7} />
 
                   <BarSeries valueField="population" argumentField="year" />
-                  <Title text="Theo dõi điểm số" />
+                  <Title text="Điểm số trung bình các bài luyện tập" />
                   <Animation />
                 </Chart>
               </Paper>

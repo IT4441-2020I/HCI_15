@@ -8,6 +8,7 @@ import LearningSentence from "./Components/LearningSentence";
 import Battle from "./Components/Battle";
 import History from "./Components/History";
 import Evaluate from "./Components/Evaluate";
+import HistoryPractice from "./Components/HistoryPractice";
 import React, { useState } from "react";
 import Test from "./Components/Test";
 import clsx from "clsx";
@@ -38,7 +39,7 @@ import Competion from "./Components/Competion";
 import HomePage from "./Components/HomePage";
 import ChartDemo from "./Components/Chart";
 import CreateBattle from "./Components/CreateBattle";
-
+import SettingPane from "./Components/SettingPane";
 import Collapse from '@material-ui/core/Collapse';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
@@ -348,9 +349,14 @@ export default function App() {
                     Thống kê
                   </div>
                 </Link>
+                <Link
+                  to="historypractice"
+                  style={{ textDecoration: "none", color: "black" }}
+                >
                 <div className="item-dropdown" onClick={displayMenu}>
                   Lịch sử luyện tập
                 </div>
+                </Link>
               </div>
             </List>
           </Collapse>
@@ -384,8 +390,9 @@ export default function App() {
               <div></div>
             )}
           </div> */}
+          
           <Link
-            to="/history"
+            to="/setting"
             style={{ textDecoration: "none", color: "black" }}
           >
             <ListItem button>
@@ -438,6 +445,12 @@ export default function App() {
           </Route>
           <Route path="/test">
             <Test />
+          </Route>
+          <Route path="/historypractice">
+            <HistoryPractice />
+          </Route>
+          <Route path="/setting">
+            <SettingPane />
           </Route>
         </Switch>
       </main>
