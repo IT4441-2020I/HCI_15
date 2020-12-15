@@ -8,12 +8,11 @@ import {
   Divider,
   Button,
   withStyles,
-  AccordionSummary,
+
   CardContent,
   FormGroup,
   Card,
-  AccordionDetails,
-  Accordion,
+  
   ListItemIcon,
   ListItemText,
   CardActions,
@@ -23,6 +22,51 @@ import {
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import { AccountBox, StarRate, TrendingUp } from "@material-ui/icons";
+
+import MuiAccordion from '@material-ui/core/Accordion';
+import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
+import MuiAccordionDetails from '@material-ui/core/AccordionDetails';
+
+const Accordion = withStyles({
+  root: {
+    border: '1px solid rgba(0, 0, 0, .125)',
+    boxShadow: 'none',
+    '&:not(:last-child)': {
+      borderBottom: 0,
+    },
+    '&:before': {
+      display: 'none',
+    },
+    '&$expanded': {
+      margin: 'auto',
+    },
+  },
+  expanded: {},
+})(MuiAccordion);
+
+const AccordionSummary = withStyles({
+  root: {
+    
+    borderBottom: '1px solid rgba(0, 0, 0, .125)',
+    marginBottom: -1,
+    minHeight: 56,
+    '&$expanded': {
+      minHeight: 56,
+    },
+  },
+  content: {
+    '&$expanded': {
+      margin: '12px 0',
+    },
+  },
+  expanded: {},
+})(MuiAccordionSummary);
+
+const AccordionDetails = withStyles((theme) => ({
+  root: {
+    padding: theme.spacing(2),
+  },
+}))(MuiAccordionDetails);
 
 const CheckDetails = () => {
   return (
@@ -92,7 +136,7 @@ const Evaluate = () => {
   }));
 
   return (
-    <div>
+    <Box boxShadow="7" p="20px" mt="20px">
       <h3>Bài kiểm tra đánh giá</h3>
 
       <div class="row">
@@ -157,7 +201,7 @@ const Evaluate = () => {
           </Link>
         </div>
       </div>
-    </div>
+    </Box>
   );
 };
 

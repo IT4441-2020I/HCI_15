@@ -60,7 +60,7 @@ const Test = () => {
     };
   }, []);
   return (
-    <Card className={classes.root}>
+    <Box  boxShadow="7" p="20px">
       <Row style={{ display: "flex", justifyContent: "space-between" }}>
         <Col span="5">
           <Box boxShadow="5" size="10">
@@ -166,7 +166,7 @@ const Test = () => {
           </div>
         </Col>
       </Row>
-    </Card>
+    </Box>
   );
 };
 
