@@ -38,6 +38,10 @@ import Competion from "./Components/Competion";
 import HomePage from "./Components/HomePage";
 import ChartDemo from "./Components/Chart";
 import CreateBattle from "./Components/CreateBattle";
+
+import Collapse from '@material-ui/core/Collapse';
+import ExpandLess from '@material-ui/icons/ExpandLess';
+import ExpandMore from '@material-ui/icons/ExpandMore';
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -104,11 +108,35 @@ const useStyles = makeStyles((theme) => ({
 
 export default function App() {
   const [display, setDisplay] = useState(false);
-  const [display1, setDisplay1] = useState(false);
-  const [display2, setDisplay2] = useState(false);
+  // const [display1, setDisplay1] = useState(false);
+  // const [display2, setDisplay2] = useState(false);
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = useState(false);
+  const [openListLearn, setOpenListLearn] = React.useState(false);
+  const [openListBattle, setOpenListBattle] = React.useState(false);
+  const [openListInfo, setOpenListInfo] = React.useState(false);
+
+  const handleClickListLearn = () => {
+    setOpenListLearn(!openListLearn);
+    if(open ===false){
+      setOpen(true);
+    }
+  };
+
+  const handleClickListBattle = () => {
+    setOpenListBattle(!openListBattle);
+    if(open ===false){
+      setOpen(true);
+    }
+  };
+
+  const handleClickListInfo = () => {
+    setOpenListInfo(!openListInfo);
+    if(open ===false){
+      setOpen(true);
+    }
+  };
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -116,6 +144,15 @@ export default function App() {
 
   const handleDrawerClose = () => {
     setOpen(false);
+    if(openListLearn === true){
+      setOpenListLearn(false);
+    }
+    if(openListBattle === true){
+      setOpenListBattle(false);
+    }
+    if(openListInfo === true){
+      setOpenListInfo(false);
+    }
   };
 
   const displayMenu = () => {
@@ -125,18 +162,18 @@ export default function App() {
     handleDrawerOpen();
   };
 
-  const displayMenuLearning = () => {
-    let temp1 = !display1;
-    console.log(temp1);
-    setDisplay1(temp1);
-    handleDrawerOpen();
-  };
-  const displayMenuBattle = () => {
-    let temp = !display2;
-    console.log(temp);
-    setDisplay2(temp);
-    handleDrawerOpen();
-  };
+  // const displayMenuLearning = () => {
+  //   let temp1 = !display1;
+  //   console.log(temp1);
+  //   setDisplay1(temp1);
+  //   handleDrawerOpen();
+  // };
+  // const displayMenuBattle = () => {
+  //   let temp = !display2;
+  //   console.log(temp);
+  //   setDisplay2(temp);
+  //   handleDrawerOpen();
+  // };
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -201,59 +238,39 @@ export default function App() {
               <ListItemText primary="Trang chủ" />
             </ListItem>
           </Link>
-          {/* <Link
-            to="/learning"
-            style={{ textDecoration: "none", color: "black" }}
-          > */}
-          <ListItem
-            button
-            style={{ textDecoration: "none", color: "black" }}
-            onClick={displayMenuLearning}
-          >
+          
+          <ListItem button onClick={handleClickListLearn}>
             <ListItemIcon>
               <LocalLibraryIcon />
             </ListItemIcon>
             <ListItemText primary="Học gõ" />
-          </ListItem>
-          {display1 === true ? (
-            <div className="menu-dropdown">
-              <Link
-                to="learningKey"
-                style={{ textDecoration: "none", color: "black" }}
-              >
-                <div className="item-dropdown" onClick={displayMenuLearning}>
-                  Học gõ phím
-                </div>
-              </Link>
-              <Link
-                to="learningRhythm"
-                style={{ textDecoration: "none", color: "black" }}
-              >
-                <div className="item-dropdown" onClick={displayMenuLearning}>
-                  Học gõ âm tiết
-                </div>
-              </Link>
-              <Link
-                to="learningWord"
-                style={{ textDecoration: "none", color: "black" }}
-              >
-                <div className="item-dropdown" onClick={displayMenuLearning}>
-                  Học gõ từ
-                </div>
-              </Link>
-              <Link
-                to="learningSentence"
-                style={{ textDecoration: "none", color: "black" }}
-              >
-                <div className="item-dropdown" onClick={displayMenuLearning}>
-                  Học gõ câu
-                </div>
-              </Link>
-            </div>
-          ) : (
-            <div></div>
-          )}
-          {/* </Link> */}
+            {openListLearn ? <ExpandLess /> : <ExpandMore />}
+            </ListItem>
+          <Collapse in={openListLearn} timeout="auto" unmountOnExit>
+              <List component="div" disablePadding>
+              <Link to="learningKey" style={{ textDecoration: "none", color: "black" }}>
+                  <div className="item-dropdown">
+                    Học gõ phím
+                  </div>
+                </Link>
+                <Link to="learningRhythm" style={{ textDecoration: "none", color: "black" }}>
+                  <div className="item-dropdown" >
+                    Học gõ âm tiết
+                  </div>
+                </Link>
+                <Link to="learningWord" style={{ textDecoration: "none", color: "black" }}>
+                  <div className="item-dropdown" >
+                    Học gõ từ
+                  </div>
+                </Link>
+                <Link to="learningSentence" style={{ textDecoration: "none", color: "black" }}>
+                  <div className="item-dropdown">
+                    Học gõ câu
+                  </div>
+                </Link>
+              </List>
+            </Collapse>
+          
           <Link
             to="/practice"
             style={{ textDecoration: "none", color: "black" }}
@@ -265,36 +282,29 @@ export default function App() {
               <ListItemText primary="Luyện tập" />
             </ListItem>
           </Link>
-          <Link style={{ textDecoration: "none", color: "black" }}>
-            <ListItem button onClick={displayMenuBattle}>
-              <ListItemIcon>
-                <EmojiEventsIcon />
-              </ListItemIcon>
-              <ListItemText primary="Thi đấu" />
+          
+          <ListItem button onClick={handleClickListBattle}>
+            <ListItemIcon>
+              <EmojiEventsIcon />
+            </ListItemIcon>
+            <ListItemText primary="Thi đấu" />
+            {openListBattle ? <ExpandLess /> : <ExpandMore />}
             </ListItem>
-            {display2 === true ? (
-              <div className="menu-dropdown">
-                <Link
-                  to="battle"
-                  style={{ textDecoration: "none", color: "black" }}
-                >
-                  <div className="item-dropdown" onClick={displayMenuBattle}>
-                    Tham gia
-                  </div>
-                </Link>
-                <Link
-                  to="createbattle"
-                  style={{ textDecoration: "none", color: "black" }}
-                >
-                  <div className="item-dropdown" onClick={displayMenuBattle}>
-                    Tạo mới
-                  </div>
-                </Link>
-              </div>
-            ) : (
-              <div></div>
-            )}
-          </Link>
+          <Collapse in={openListBattle} timeout="auto" unmountOnExit>
+            <List component="div" disablePadding>
+              <Link to="battle" style={{ textDecoration: "none", color: "black" }}>
+                <div className="item-dropdown">
+                  Tham gia
+                </div>
+              </Link>
+              <Link to="createbattle" style={{ textDecoration: "none", color: "black" }}>
+                <div className="item-dropdown">
+                  Tạo mới
+                </div>
+              </Link>
+            </List>
+          </Collapse>
+          
           <Link
             to="/evaluate"
             style={{ textDecoration: "none", color: "black" }}
@@ -320,14 +330,39 @@ export default function App() {
         </List>
         <Divider />
         <List>
-          <div>
+        <ListItem button onClick={handleClickListInfo}>
+            <ListItemIcon>
+              <PersonIcon />
+            </ListItemIcon>
+            <ListItemText primary="Thông tin cá nhân" />
+            {openListInfo ? <ExpandLess /> : <ExpandMore />}
+            </ListItem>
+          <Collapse in={openListInfo} timeout="auto" unmountOnExit>
+            <List component="div" disablePadding>
+            <div className="menu-dropdown">
+                <Link
+                  to="chart"
+                  style={{ textDecoration: "none", color: "black" }}
+                >
+                  <div className="item-dropdown" onClick={displayMenu}>
+                    Thống kê
+                  </div>
+                </Link>
+                <div className="item-dropdown" onClick={displayMenu}>
+                  Lịch sử luyện tập
+                </div>
+              </div>
+            </List>
+          </Collapse>
+          
+          {/* <div>
             <ListItem
               button
               style={{ textDecoration: "none", color: "black" }}
               onClick={displayMenu}
             >
               <ListItemIcon>
-                <PersonIcon />
+                
               </ListItemIcon>
               <ListItemText primary="Thông tin cá nhân" />
             </ListItem>
@@ -348,7 +383,7 @@ export default function App() {
             ) : (
               <div></div>
             )}
-          </div>
+          </div> */}
           <Link
             to="/history"
             style={{ textDecoration: "none", color: "black" }}
