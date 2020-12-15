@@ -5,7 +5,7 @@ import { Row, Col } from "antd";
 import "../keyboard.css";
 import "./qwertyKeyboard.css";
 import "./stenoKeyboard.css";
-import "../js/steno/game-learn-key.js";
+// import "../js/steno/game-learn-key.js";
 // import "../js/steno/ploverdemo.js";
 
 const listKeyBoard1 = ["S", "K", "R", "N", "H", "*", "W", "J", "N", "T"];
