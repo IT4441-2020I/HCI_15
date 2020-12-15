@@ -7,24 +7,26 @@ import { SyncOutlined } from '@ant-design/icons';
 import { Content } from 'antd/lib/layout/layout';
 import CountUp from 'react-countup';
 import { useCountUp } from 'react-countup';
-import {AccountBox , StarRate,TrendingUp} from '@material-ui/icons';
 
 import './Practice.css';
 
 const { Countdown } = Statistic;
 const { Option } = Select;
 
-const deadline = Date.now() + 300 * 60;
+// const deadline = Date.now() + 3000 * 60;
 
 class Practice extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
+            deadline: Date.now() + 3000 * 60,
             check: false,
             speed: 0,
             keyTrue: 0,
             keyFalse: 0,
+            text: 'Chính lòng yêu nước, chứ không phải lý tưởng cộng sản, là nguồn cảm hứng cho tôi.',
+            tocKy: '-TK SK-S*IK SR-HOG -IEJG PR-SEWNK *-AW -K SK-SUW KH-OWG PH-HSAJ SR-SI T-HSEWG KN-OWG S-HSAN *-AW -K SR-HA KR-HUON K-HSAT H-SUWG SK-O T-OWJ -AGK',
         }
     }
 
@@ -47,8 +49,55 @@ class Practice extends Component {
         })
     }
 
+    handleSelect = (e) => {
+        console.log(e);
+        if (e == 'luyenGoTheoAm') {
+            this.setState({
+                text: 'Ơ',
+                tocKy: 'W',
+            })
+        } else if (e == 'luyenGoTheoTu') {
+            this.setState({
+                text: 'TẬP',
+                tocKy: 'T*-WP',
+            })
+        } else if (e == 'luyenGoTheoCau') {
+            this.setState({
+                text: 'Chính lòng yêu nước, chứ không phải lý tưởng cộng sản, là nguồn cảm hứng cho tôi.',
+                tocKy: '-TK SK-S*IK SR-HOG -IEJG PR-SEWNK *-AW -K SK-SUW KH-OWG PH-HSAJ SR-SI T-HSEWG KN-OWG S-HSAN *-AW -K SR-HA KR-HUON K-HSAT H-SUWG SK-O T-OWJ -AGK',
+            })
+        }
+    }
+
+    handleSelectTime = (e) => {
+        console.log(e);
+        switch (e) {
+            case 1:
+                this.setState({ deadline: Date.now() + 1000 * 60 });
+                break;
+            case 3:
+                this.setState({ deadline: Date.now() + 3000 * 60 });
+                break;
+            case 5:
+                this.setState({ deadline: Date.now() + 5000 * 60 });
+                break;
+            case 10:
+                this.setState({ deadline: Date.now() + 10000 * 60 });
+                break;
+            case 15:
+                this.setState({ deadline: Date.now() + 15000 * 60 });
+                break;
+            case 20:
+                this.setState({ deadline: Date.now() + 20000 * 60 });
+                break;
+            case 30:
+                this.setState({ deadline: Date.now() + 30000 * 60 });
+                break;
+        }
+    }
+    
     render() {
-        // const { aKey, uKey } = this.state;
+        const { text, tocKy, deadline } = this.state;
 
         console.log('render' + this.state.test);
 
@@ -64,6 +113,7 @@ class Practice extends Component {
                 }}
             >
                 <Content>
+                    {/* <CountDownTimer /> */}
                     <PageHeader
                         className="site-page-header pageHeader"
                         style={{ borderBottom: '1.5px solid #f0f2f5' }}
@@ -135,10 +185,28 @@ class Practice extends Component {
                             </div>
                         </Col>
                         <Col span='18'>
-                            <Select defaultValue="Luyện gõ theo câu" style={{ width: 180, margin: 20, boxShadow: 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px' }}>
-                                <Option value="jack">Luyện gõ theo từ</Option>
-                                <Option value="lucy">Luyện gõ theo câu</Option>
-                                <Option value="Yiminghe">Luyện gõ đoạn văn</Option>
+                            <Select
+                                defaultValue="Luyện gõ theo câu"
+                                style={{ width: 180, margin: 20, boxShadow: 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px' }}
+                                onSelect={this.handleSelect}
+                            >
+                                <Option value="luyenGoTheoAm">Luyện gõ theo âm</Option>
+                                <Option value="luyenGoTheoTu">Luyện gõ theo từ</Option>
+                                <Option value="luyenGoTheoCau">Luyện gõ theo câu</Option>
+                            </Select>
+
+                            <Select
+                                defaultValue="3 phút"
+                                style={{ width: 180, margin: 20, boxShadow: 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px' }}
+                                onSelect={this.handleSelectTime}
+                            >
+                                <Option value={1}>1 phút</Option>
+                                <Option value={3}>3 phút</Option>
+                                <Option value={5}>5 phút</Option>
+                                <Option value={10}>10 phút</Option>
+                                <Option value={15}>15 phút</Option>
+                                <Option value={20}>20 phút</Option>
+                                <Option value={30}>30 phút</Option>
                             </Select>
                             <div style={{
                                 margin: 20,
@@ -149,17 +217,13 @@ class Practice extends Component {
                                 <Row>
                                     <Col span='12'>
                                         <Card title="Văn bản" bordered={true} style={{ minHeight: 210 }}>
-                                            <p>{`Chính lòng yêu nước, chứ không phải lý tưởng cộng sản, 
-                                    là nguồn cảm hứng cho tôi.`}</p>
+                                            <p>{text}</p>
                                         </Card>
                                     </Col>
 
                                     <Col span='12'>
                                         <Card title="Tốc ký" bordered={true}>
-                                            <p>{`-TK SK-S*IK SR-HOG -IEJG PR-SEWNK *-AW -K SK-SUW KH-OWG 
-                                        PH-HSAJ SR-SI T-HSEWG KN-OWG S-HSAN *-AW -K SR-HA KR-HUON 
-                                        K-HSAT H-SUWG SK-O T-OWJ -AGK`}</p>
-
+                                            <p>{tocKy}</p>
                                         </Card>
                                     </Col>
                                 </Row>
@@ -204,7 +268,7 @@ class Practice extends Component {
                                         </div>
                                         <div style={{ display: "flex", justifyContent: "center", marginTop: 10 }}>
                                             <KeyBoard item="U" />
-                                            <KeyBoard item="O" />
+                                            <KeyBoard1 item="O" bgColor={this.state.check ? '#fcba03' : 'black'} />
                                             <KeyBoard item="E" />
                                             <KeyBoard1 item="A" bgColor={this.state.check ? '#3FCC28' : 'black'} />
                                         </div>
