@@ -13,10 +13,16 @@ import Select from "@material-ui/core/Select";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import TextField from "@material-ui/core/TextField";
-import { Row, Col } from "antd";
 import "../keyboard.css";
 import "./qwertyKeyboard.css";
 import "./stenoKeyboard.css";
+
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+  } from "react-router-dom";
 
 const listKeyBoard1 = ["S", "K", "R", "N", "H", "*", "W", "J", "N", "T"];
 const listKeyBoard2 = ["T", "P", "H", "N", "S", "I", "Y", "J", "G", "K"];
@@ -90,7 +96,7 @@ const useStyles = makeStyles((theme) => ({
 export default function LearningKey() {
     const classes = useStyles();
     const [age, setAge] = React.useState("");
-    
+
     const handleChangeAge = (event) => {
         setAge(event.target.value);
     };
@@ -98,7 +104,7 @@ export default function LearningKey() {
     return (
         <Card>
             <CardContent>
-                <Typography variant="h3" style={{ marginBottom: "2vh" }}>Học gõ âm tiết</Typography>
+                <Typography variant="h4" style={{ marginBottom: "2vh" }}>Học gõ âm tiết</Typography>
                 <div style={{ height: "75vh", margin: "-2vh", padding: "2vh" }}>
                     <div>
                         <FormControl
@@ -140,6 +146,7 @@ export default function LearningKey() {
                                 lineHeight: "7vh",
                                 borderRadius: "2vh",
                                 color: "white",
+                                fontSize: "30px"
                             }}
                         >
                             OẶ
@@ -155,7 +162,7 @@ export default function LearningKey() {
                     </div>
                     <div>
                         <div>
-                            <Button style={{ backgroundColor: "wheat" }}>
+                            <Button style={{}}>
                                 Chuyển âm mới <ArrowForwardIosIcon />
                             </Button>
                         </div>
@@ -400,6 +407,17 @@ export default function LearningKey() {
                             </div>
                         </div>
 
+                    </div>
+                    <div style={{ marginTop: "5vh", textAlign: "center" }}>
+                        <Link to="/learningWord">
+                            <Button
+                                width="10%"
+                                variant="contained"
+                                color="primary"
+                                size="large">
+                                Chuyển sang học gõ từ<ArrowForwardIosIcon />
+                            </Button>
+                        </Link>
                     </div>
                 </div>
             </CardContent>

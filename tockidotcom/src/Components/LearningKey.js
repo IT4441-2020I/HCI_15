@@ -1,7 +1,12 @@
 import React from "react";
 import { Button, Card, CardContent, Typography } from "@material-ui/core";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
-import { Row, Col } from "antd";
 import "../keyboard.css";
 import "./qwertyKeyboard.css";
 import "./stenoKeyboard.css";
@@ -37,7 +42,7 @@ export default function LearningKey() {
   return (
     <Card>
       <CardContent>
-        <Typography variant="h3" style={{ marginBottom: "2vh" }}>Học gõ phím</Typography>
+        <Typography variant="h4" style={{ marginBottom: "2vh" }}>Học gõ phím</Typography>
         <div style={{ height: "75vh", margin: "-2vh", padding: "2vh" }}>
           <div
             style={{
@@ -56,6 +61,7 @@ export default function LearningKey() {
                 lineHeight: "7vh",
                 borderRadius: "2vh",
                 color: "white",
+                fontSize: "30px"
               }}
             >
               O
@@ -63,7 +69,7 @@ export default function LearningKey() {
           </div>
           <div>
             <div>
-              <Button style={{ backgroundColor: "wheat" }}>
+              <Button style={{}}>
                 Chuyển phím khác <ArrowForwardIosIcon />
               </Button>
             </div>
@@ -272,7 +278,7 @@ export default function LearningKey() {
             {/* steno keyboard */}
             <div class="col-5" style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
               <div id="stenoKeyboard">
-                <div class="stenoNumberBar"> 
+                <div class="stenoNumberBar">
                   <div class="stenoKey numberBar code48 code49 code50 code51 code52 code53 code54 code55 code56 code57" id="stenoKeyNumberBar" style={{ backgroundColor: '#71787D' }}></div>
                 </div>
                 <div class="stenoUpperBank">
@@ -308,6 +314,17 @@ export default function LearningKey() {
               </div>
             </div>
 
+          </div>
+          <div style={{marginTop: "5vh", textAlign: "center"}}>
+            <Link to="/learningRhythm">
+              <Button
+                width="10%"
+                variant="contained"
+                color="primary"
+                size="large">
+                Chuyển sang học gõ âm tiết<ArrowForwardIosIcon />
+              </Button>
+            </Link>
           </div>
         </div>
       </CardContent>

@@ -98,7 +98,7 @@ class Battle extends Component {
     return (
       <Card>
         <CardContent>
-          <Typography variant="h3">Danh sách các cuộc thi</Typography>
+          <Typography variant="h4">Danh sách các cuộc thi</Typography>
           <CustomizedTables />
         </CardContent>
       </Card>
