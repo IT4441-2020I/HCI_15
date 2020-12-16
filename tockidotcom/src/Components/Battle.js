@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import ArrowRightIcon from "@material-ui/icons/ArrowRight";
-import { BrowserRouter as Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import {
@@ -67,7 +67,7 @@ function CustomizedTables() {
                 <StyledTableRow key={row.id}>
                   <TableCell component="th" scope="row">
                     {row.id}
-                    <Link to="competition">
+                    <Link to="/competition">
                       <Button
                         variant="outlined"
                         color="white"
