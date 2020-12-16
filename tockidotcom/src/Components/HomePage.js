@@ -35,7 +35,7 @@ export class HomePage extends Component {
                 <Grid item xs={2}></Grid>
                 <Grid item xs={3}>
 
-                  <Link to="/learning">
+                  <Link to="/learningKey">
                     <Button
                       fullWidth
                       variant="contained"
@@ -43,7 +43,7 @@ export class HomePage extends Component {
                       size="large"
                     >
                       Bắt đầu học
-                  </Button>
+                    </Button>
                   </Link>
                 </Grid>
                 <Grid item xs={1}></Grid>

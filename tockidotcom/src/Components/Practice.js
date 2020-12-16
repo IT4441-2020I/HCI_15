@@ -7,6 +7,7 @@ import { SyncOutlined } from '@ant-design/icons';
 import { Content } from 'antd/lib/layout/layout';
 import CountUp from 'react-countup';
 import { useCountUp } from 'react-countup';
+import "./stenoKeyboard.css";
 
 import './Practice.css';
 
@@ -95,7 +96,7 @@ class Practice extends Component {
                 break;
         }
     }
-    
+
     render() {
         const { text, tocKy, deadline } = this.state;
 
@@ -239,42 +240,87 @@ class Practice extends Component {
                                     />
                                 </Row>
 
-                                <Row>
-                                    <Col span='6'></Col>
-                                    <Col span='12' style={{ minWidth: 300 }}>
-                                        <div style={{
-                                            height: 30,
-                                            width: 372,
-                                            backgroundColor: '#67757c',
-                                            fontSize: 18,
-                                            display: 'flex',
-                                            alignItems: "center",
-                                            justifyContent: "center",
-                                            borderRadius: 5,
-                                            marginRight: 8,
-                                            marginBottom: 2,
-                                        }}></div>
+                                <Row style={{justifyContent: "center"}}>
+                                    {/* steno keyboard */}
+                                    <div class="col-5" style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+                                        <div id="stenoKeyboard">
+                                            <div class="stenoNumberBar">
+                                                <div class="stenoKey numberBar code48 code49 code50 code51 code52 code53 code54 code55 code56 code57" id="stenoKeyNumberBar" style={{ backgroundColor: '#71787D' }}></div>
+                                            </div>
+                                            <div class="stenoUpperBank">
+                                                <div class="stenoKey square code81" id="stenoKey-0" data-priority="1" data-keyqwerty="81" data-valueqwerty="q">S</div>
+                                                <div class="stenoKey square code87" id="stenoKey-1" data-priority="3" data-keyqwerty="87" data-valueqwerty="w">K</div>
+                                                <div class="stenoKey square code69" id="stenoKey-2" data-priority="5" data-keyqwerty="69" data-valueqwerty="e">R</div>
+                                                <div class="stenoKey square code82" id="stenoKey-3" data-priority="7" data-keyqwerty="82" data-valueqwerty="r">N</div>
+                                                <div class="stenoKey square code84" id="stenoKey-4" data-priority="8" data-keyqwerty="84" data-valueqwerty="t">H</div>
+                                                <div class="stenoKey square code85" id="stenoKey-5" data-priority="10" data-keyqwerty="85" data-valueqwerty="u">*</div>
+                                                <div class="stenoKey square code73" id="stenoKey-6" data-priority="16" data-keyqwerty="73" data-valueqwerty="i">W</div>
+                                                <div class="stenoKey square code79" id="stenoKey-7" data-priority="18" data-keyqwerty="79" data-valueqwerty="o">J</div>
+                                                <div class="stenoKey square code80" id="stenoKey-8" data-priority="19" data-keyqwerty="80" data-valueqwerty="p">N</div>
+                                                <div class="stenoKey square code219" id="stenoKey-9" data-priority="21" data-keyqwerty="219" data-valueqwerty="[">T</div>
+                                            </div>
+                                            <div class="stenoLowerBank">
+                                                <div class="stenoKey rounded code65" id="stenoKey-10" data-priority="2" data-keyqwerty="65" data-valueqwerty="a">T</div>
+                                                <div class="stenoKey rounded code83" id="stenoKey-11" data-priority="4" data-keyqwerty="83" data-valueqwerty="s">P</div>
+                                                <div class="stenoKey rounded code68" id="stenoKey-12" data-priority="6" data-keyqwerty="68" data-valueqwerty="d">H</div>
+                                                <div class="stenoKey rounded code70" id="stenoKey-13" data-priority="7" data-keyqwerty="70" data-valueqwerty="f">N</div>
+                                                <div class="stenoKey rounded code71" id="stenoKey-14" data-priority="9" data-keyqwerty="71" data-valueqwerty="g">S</div>
+                                                <div class="stenoKey rounded code74" id="stenoKey-15" data-priority="11" data-keyqwerty="74" data-valueqwerty="j">I</div>
+                                                <div class="stenoKey rounded code75" id="stenoKey-16" data-priority="17" data-keyqwerty="75" data-valueqwerty="k">Y</div>
+                                                <div class="stenoKey rounded code76" id="stenoKey-17" data-priority="18" data-keyqwerty="76" data-valueqwerty="l">J</div>
+                                                <div class="stenoKey rounded code186" id="stenoKey-18" data-priority="20" data-keyqwerty="186" data-valueqwerty=";">G</div>
+                                                <div class="stenoKey rounded code222" id="stenoKey-19" data-priority="22" data-keyqwerty="222" data-valueqwerty="'">K</div>
+                                            </div>
+                                            <div class="stenoVowelKeys">
+                                                <div class="stenoKey rounded code67" id="stenoKey-20" data-priority="12" data-keyqwerty="67" data-valueqwerty="c">U</div>
+                                                <div class="stenoKey rounded code86" id="stenoKey-21" data-priority="13" data-keyqwerty="86" data-valueqwerty="v">O</div>
+                                                <div class="stenoKey rounded code78" id="stenoKey-22" data-priority="14" data-keyqwerty="78" data-valueqwerty="n">E</div>
+                                                <div class="stenoKey rounded code77" id="stenoKey-23" data-priority="15" data-keyqwerty="77" data-valueqwerty="m" style={{ backgroundColor: 'rgb(186, 207, 250)', color: 'rgb(0, 0, 0)' }}>A</div>
+                                            </div>
+                                        </div>
+                                    </div>
 
-                                        <div style={{ display: "flex" }}>
-                                            {
-                                                listKeyBoard1.map((item, id) => <KeyBoard key={id} item={item} />)
-                                            }
-                                        </div>
-
-                                        <div style={{ display: "flex" }}>
-                                            {
-                                                listKeyBoard2.map((item, id) => <KeyBoard key={id} item={item} />)
-                                            }
-                                        </div>
-                                        <div style={{ display: "flex", justifyContent: "center", marginTop: 10 }}>
-                                            <KeyBoard item="U" />
-                                            <KeyBoard1 item="O" bgColor={this.state.check ? '#fcba03' : 'black'} />
-                                            <KeyBoard item="E" />
-                                            <KeyBoard1 item="A" bgColor={this.state.check ? '#3FCC28' : 'black'} />
-                                        </div>
-                                    </Col>
-                                    <Col span='6'></Col>
                                 </Row>
+
+                                {/* steno keyboard */}
+                                {/* <div class="col-5" style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+                                    <div id="stenoKeyboard">
+                                        <div class="stenoNumberBar">
+                                            <div class="stenoKey numberBar code48 code49 code50 code51 code52 code53 code54 code55 code56 code57" id="stenoKeyNumberBar" style={{ backgroundColor: '#71787D' }}></div>
+                                        </div>
+                                        <div class="stenoUpperBank">
+                                            <div class="stenoKey square code81" id="stenoKey-0" data-priority="1" data-keyqwerty="81" data-valueqwerty="q">S</div>
+                                            <div class="stenoKey square code87" id="stenoKey-1" data-priority="3" data-keyqwerty="87" data-valueqwerty="w">K</div>
+                                            <div class="stenoKey square code69" id="stenoKey-2" data-priority="5" data-keyqwerty="69" data-valueqwerty="e">R</div>
+                                            <div class="stenoKey square code82" id="stenoKey-3" data-priority="7" data-keyqwerty="82" data-valueqwerty="r">N</div>
+                                            <div class="stenoKey square code84" id="stenoKey-4" data-priority="8" data-keyqwerty="84" data-valueqwerty="t">H</div>
+                                            <div class="stenoKey square code85" id="stenoKey-5" data-priority="10" data-keyqwerty="85" data-valueqwerty="u">*</div>
+                                            <div class="stenoKey square code73" id="stenoKey-6" data-priority="16" data-keyqwerty="73" data-valueqwerty="i">W</div>
+                                            <div class="stenoKey square code79" id="stenoKey-7" data-priority="18" data-keyqwerty="79" data-valueqwerty="o">J</div>
+                                            <div class="stenoKey square code80" id="stenoKey-8" data-priority="19" data-keyqwerty="80" data-valueqwerty="p">N</div>
+                                            <div class="stenoKey square code219" id="stenoKey-9" data-priority="21" data-keyqwerty="219" data-valueqwerty="[">T</div>
+                                        </div>
+                                        <div class="stenoLowerBank">
+                                            <div class="stenoKey rounded code65" id="stenoKey-10" data-priority="2" data-keyqwerty="65" data-valueqwerty="a">T</div>
+                                            <div class="stenoKey rounded code83" id="stenoKey-11" data-priority="4" data-keyqwerty="83" data-valueqwerty="s">P</div>
+                                            <div class="stenoKey rounded code68" id="stenoKey-12" data-priority="6" data-keyqwerty="68" data-valueqwerty="d">H</div>
+                                            <div class="stenoKey rounded code70" id="stenoKey-13" data-priority="7" data-keyqwerty="70" data-valueqwerty="f">N</div>
+                                            <div class="stenoKey rounded code71" id="stenoKey-14" data-priority="9" data-keyqwerty="71" data-valueqwerty="g">S</div>
+                                            <div class="stenoKey rounded code74" id="stenoKey-15" data-priority="11" data-keyqwerty="74" data-valueqwerty="j">I</div>
+                                            <div class="stenoKey rounded code75" id="stenoKey-16" data-priority="17" data-keyqwerty="75" data-valueqwerty="k">Y</div>
+                                            <div class="stenoKey rounded code76" id="stenoKey-17" data-priority="18" data-keyqwerty="76" data-valueqwerty="l">J</div>
+                                            <div class="stenoKey rounded code186" id="stenoKey-18" data-priority="20" data-keyqwerty="186" data-valueqwerty=";">G</div>
+                                            <div class="stenoKey rounded code222" id="stenoKey-19" data-priority="22" data-keyqwerty="222" data-valueqwerty="'">K</div>
+                                        </div>
+                                        <div class="stenoVowelKeys">
+                                            <div class="stenoKey rounded code67" id="stenoKey-20" data-priority="12" data-keyqwerty="67" data-valueqwerty="c">U</div>
+                                            <div class="stenoKey rounded code86" id="stenoKey-21" data-priority="13" data-keyqwerty="86" data-valueqwerty="v">O</div>
+                                            <div class="stenoKey rounded code78" id="stenoKey-22" data-priority="14" data-keyqwerty="78" data-valueqwerty="n">E</div>
+                                            <div class="stenoKey rounded code77" id="stenoKey-23" data-priority="15" data-keyqwerty="77" data-valueqwerty="m" style={{ backgroundColor: 'rgb(186, 207, 250)', color: 'rgb(0, 0, 0)' }}>A</div>
+                                        </div>
+                                    </div>
+                                </div> */}
+
                             </div>
                         </Col>
                     </Row>

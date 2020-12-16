@@ -7,7 +7,6 @@ import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 import Box from "@material-ui/core/Box";
 import { Button, Card, CardContent } from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
-import { Row, Col } from "antd";
 import "../keyboard.css";
 import "./qwertyKeyboard.css";
 import "./stenoKeyboard.css";
@@ -64,7 +63,7 @@ export default function LearningKey() {
     return (
         <Card>
             <CardContent>
-                <Typography variant="h3" style={{ marginBottom: "2vh" }}>Học gõ câu</Typography>
+                <Typography variant="h4" style={{ marginBottom: "2vh" }}>Học gõ câu</Typography>
                 <div style={{ height: "75vh", margin: "-2vh", padding: "2vh" }}>
                     <div
                         style={{
@@ -85,6 +84,7 @@ export default function LearningKey() {
                                 lineHeight: "7vh",
                                 borderRadius: "2vh",
                                 color: "black",
+                                fontSize: "18px"
                             }}
                         >
                             Nước Việt Nam là một, dân tộc Việt Nam là một. Sông có thể
@@ -99,7 +99,7 @@ export default function LearningKey() {
                     </div>
                     <div>
                         <div>
-                            <Button style={{ backgroundColor: "wheat" }}>
+                            <Button style={{}}>
                                 Chuyển câu khác
                     <ArrowForwardIosIcon />
                             </Button>
