@@ -90,70 +90,78 @@ const SettingPane = () => {
   };
 
   const [age, setAge] = React.useState("");
+
+  const handleChangeAge = (event) => {
+    setAge(event.target.value);
+  };
   // Return your Settings Pane
   return (
     <Card>
       <CardContent>
-        <FormControl
-          className={classess1.formControl}
-          style={{ width: "100%" }}
-        >
-          <InputLabel id="demo-simple-select-label">Cài đặt</InputLabel>
-          <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            value={age}
+        <div style={{ width: '50%' }}>
+          <FormControl
+            className={classess1.formControl}
+            style={{ width: '100%' }}
           >
-            <MenuItem value="Gõ lẫn âm">Chung</MenuItem>
-            <MenuItem value="Âm đầu">Hiển thị</MenuItem>
-            <MenuItem value="Âm chính">Tốc độ nhạy của phím</MenuItem>
-          </Select>
-        </FormControl>
-        <SettingsPane
-          items={menu}
-          index="/settings/general"
-          settings={settings}
-          onPaneLeave={leavePaneHandler}
-        >
-          <SettingsContent header={true}>
-            <SettingsPage handler="/settings/general">
-              <fieldset className="form-group">
-                <label for="profileName">Người dùng: </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  name="mysettings.general.name"
-                  placeholder="Name"
-                  id="general.ame"
-                  onChange={settingsChanged}
-                  defaultValue={settings["mysettings.general.name"]}
-                />
-              </fieldset>
-              <fieldset className="form-group">
-                <label for="profileColor">Màu nền : </label>
-                <select
-                  name="mysettings.general.color-theme"
-                  id="profileColor"
-                  className="form-control"
-                  defaultValue={settings["mysettings.general.color-theme"]}
-                >
-                  <option value="blue">Xanh</option>
-                  <option value="red">Đỏ</option>
-                  <option value="purple">Tím</option>
-                  <option value="orange">Cam</option>
-                </select>
-              </fieldset>
-            </SettingsPage>
-          </SettingsContent>
-        </SettingsPane>
-        <Button
-          variant="contained"
-          size="large"
-          color="primary"
-          style={{ marginLeft: "5px" }}
-        >
-          Lưu
+            <InputLabel id="demo-simple-select-label">Cài đặt</InputLabel>
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={age}
+              onChange={handleChangeAge}
+            >
+              <MenuItem value="Chung">Chung</MenuItem>
+              <MenuItem value="Hiển thị">Hiển thị</MenuItem>
+              <MenuItem value="Tốc độ nhạy của phím">Tốc độ nhạy của phím</MenuItem>
+            </Select>
+          </FormControl>
+          <SettingsPane
+            items={menu}
+            index="/settings/general"
+            settings={settings}
+            onPaneLeave={leavePaneHandler}
+            style={{ width: '80%' }}
+          >
+            <SettingsContent header={true}>
+              <SettingsPage handler="/settings/general">
+                <fieldset className="form-group">
+                  <label for="profileName">Người dùng: </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    name="mysettings.general.name"
+                    placeholder="Name"
+                    id="general.ame"
+                    onChange={settingsChanged}
+                    defaultValue={settings["mysettings.general.name"]}
+                  />
+                </fieldset>
+                <fieldset className="form-group">
+                  <label for="profileColor">Màu nền : </label>
+                  <select
+                    name="mysettings.general.color-theme"
+                    id="profileColor"
+                    className="form-control"
+                    defaultValue={settings["mysettings.general.color-theme"]}
+                  >
+                    <option value="blue">Xanh</option>
+                    <option value="red">Đỏ</option>
+                    <option value="purple">Tím</option>
+                    <option value="orange">Cam</option>
+                  </select>
+                </fieldset>
+              </SettingsPage>
+            </SettingsContent>
+          </SettingsPane>
+          <Button
+            variant="contained"
+            size="large"
+            color="primary"
+            style={{ marginLeft: "5px"}}
+          >
+            Lưu
         </Button>
+        </div>
       </CardContent>
     </Card>
   );
